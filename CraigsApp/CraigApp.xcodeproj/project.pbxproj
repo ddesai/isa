@@ -11,6 +11,9 @@
 		6A41BC9B163F5E7400946256 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BC9A163F5E7400946256 /* SearchDetailViewController.m */; };
 		6A41BC9E163F66BE00946256 /* MainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BC9D163F66BE00946256 /* MainSearchViewController.m */; };
 		6A41BCA6164077A700946256 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BCA5164077A700946256 /* SearchViewController.m */; };
+		6A41BCAD1640889600946256 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BCAC1640889600946256 /* FavViewController.m */; };
+		6A41BCB1164088F700946256 /* ListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BCB0164088F700946256 /* ListingViewController.m */; };
+		6A41BCB416408A0200946256 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BCB316408A0200946256 /* MapViewController.m */; };
 		9502DF98163DDB3500FD680E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF97163DDB3500FD680E /* UIKit.framework */; };
 		9502DF9A163DDB3500FD680E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF99163DDB3500FD680E /* Foundation.framework */; };
 		9502DF9C163DDB3500FD680E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF9B163DDB3500FD680E /* CoreGraphics.framework */; };
@@ -29,6 +32,12 @@
 		6A41BC9D163F66BE00946256 /* MainSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSearchViewController.m; sourceTree = "<group>"; };
 		6A41BCA4164077A700946256 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		6A41BCA5164077A700946256 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		6A41BCAB1640889600946256 /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavViewController.h; sourceTree = "<group>"; };
+		6A41BCAC1640889600946256 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavViewController.m; sourceTree = "<group>"; };
+		6A41BCAF164088F700946256 /* ListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingViewController.h; sourceTree = "<group>"; };
+		6A41BCB0164088F700946256 /* ListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingViewController.m; sourceTree = "<group>"; };
+		6A41BCB216408A0200946256 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		6A41BCB316408A0200946256 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		9502DF93163DDB3500FD680E /* CraigApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CraigApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9502DF97163DDB3500FD680E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9502DF99163DDB3500FD680E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +98,12 @@
 				9502DFA6163DDB3500FD680E /* CraigAppAppDelegate.h */,
 				9502DFA7163DDB3500FD680E /* CraigAppAppDelegate.m */,
 				9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */,
+				6A41BCB216408A0200946256 /* MapViewController.h */,
+				6A41BCB316408A0200946256 /* MapViewController.m */,
+				6A41BCAF164088F700946256 /* ListingViewController.h */,
+				6A41BCB0164088F700946256 /* ListingViewController.m */,
+				6A41BCAB1640889600946256 /* FavViewController.h */,
+				6A41BCAC1640889600946256 /* FavViewController.m */,
 				6A41BC99163F5E7400946256 /* SearchDetailViewController.h */,
 				6A41BC9A163F5E7400946256 /* SearchDetailViewController.m */,
 				6A41BC9C163F66BD00946256 /* MainSearchViewController.h */,
@@ -181,6 +196,9 @@
 				6A41BC9B163F5E7400946256 /* SearchDetailViewController.m in Sources */,
 				6A41BC9E163F66BE00946256 /* MainSearchViewController.m in Sources */,
 				6A41BCA6164077A700946256 /* SearchViewController.m in Sources */,
+				6A41BCAD1640889600946256 /* FavViewController.m in Sources */,
+				6A41BCB1164088F700946256 /* ListingViewController.m in Sources */,
+				6A41BCB416408A0200946256 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
