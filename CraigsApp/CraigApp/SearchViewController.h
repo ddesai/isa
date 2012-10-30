@@ -2,12 +2,14 @@
 //  SearchViewController.h
 //  CraigApp
 //
-//  Created by Hayley Wu on 10/28/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Darshan Desai on 10/29/12.
+//
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : UITableViewController
+
+//@property (strong, nonatomic) MediaLibrary *library;
 
 @end
