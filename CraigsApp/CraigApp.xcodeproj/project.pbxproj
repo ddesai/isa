@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A41BC88163F03D000946256 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BC87163F03D000946256 /* SearchViewController.m */; };
 		6A41BC98163F4D9F00946256 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BC97163F4D9F00946256 /* DataModel.m */; };
 		6A41BC9B163F5E7400946256 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BC9A163F5E7400946256 /* SearchDetailViewController.m */; };
 		6A41BC9E163F66BE00946256 /* MainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BC9D163F66BE00946256 /* MainSearchViewController.m */; };
+		6A41BCA6164077A700946256 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BCA5164077A700946256 /* SearchViewController.m */; };
 		9502DF98163DDB3500FD680E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF97163DDB3500FD680E /* UIKit.framework */; };
 		9502DF9A163DDB3500FD680E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF99163DDB3500FD680E /* Foundation.framework */; };
 		9502DF9C163DDB3500FD680E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF9B163DDB3500FD680E /* CoreGraphics.framework */; };
@@ -21,14 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6A41BC86163F03D000946256 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ../SearchViewController.h; sourceTree = "<group>"; };
-		6A41BC87163F03D000946256 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ../SearchViewController.m; sourceTree = "<group>"; };
 		6A41BC96163F4D9F00946256 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		6A41BC97163F4D9F00946256 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		6A41BC99163F5E7400946256 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
 		6A41BC9A163F5E7400946256 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailViewController.m; sourceTree = "<group>"; };
 		6A41BC9C163F66BD00946256 /* MainSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSearchViewController.h; sourceTree = "<group>"; };
 		6A41BC9D163F66BE00946256 /* MainSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSearchViewController.m; sourceTree = "<group>"; };
+		6A41BCA4164077A700946256 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		6A41BCA5164077A700946256 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		9502DF93163DDB3500FD680E /* CraigApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CraigApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9502DF97163DDB3500FD680E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9502DF99163DDB3500FD680E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,10 +91,10 @@
 				9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */,
 				6A41BC99163F5E7400946256 /* SearchDetailViewController.h */,
 				6A41BC9A163F5E7400946256 /* SearchDetailViewController.m */,
-				6A41BC86163F03D000946256 /* SearchViewController.h */,
-				6A41BC87163F03D000946256 /* SearchViewController.m */,
 				6A41BC9C163F66BD00946256 /* MainSearchViewController.h */,
 				6A41BC9D163F66BE00946256 /* MainSearchViewController.m */,
+				6A41BCA4164077A700946256 /* SearchViewController.h */,
+				6A41BCA5164077A700946256 /* SearchViewController.m */,
 				6A41BC96163F4D9F00946256 /* DataModel.h */,
 				6A41BC97163F4D9F00946256 /* DataModel.m */,
 				9502DF9E163DDB3500FD680E /* Supporting Files */,
@@ -177,10 +177,10 @@
 			files = (
 				9502DFA4163DDB3500FD680E /* main.m in Sources */,
 				9502DFA8163DDB3500FD680E /* CraigAppAppDelegate.m in Sources */,
-				6A41BC88163F03D000946256 /* SearchViewController.m in Sources */,
 				6A41BC98163F4D9F00946256 /* DataModel.m in Sources */,
 				6A41BC9B163F5E7400946256 /* SearchDetailViewController.m in Sources */,
 				6A41BC9E163F66BE00946256 /* MainSearchViewController.m in Sources */,
+				6A41BCA6164077A700946256 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
