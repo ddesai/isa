@@ -59,7 +59,7 @@
             <objects>
                 <viewController id="ZMg-6s-HWz" customClass="MainSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Rd-a4-leN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zipcode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PUz-yt-V9z">
@@ -291,7 +291,7 @@
             <objects>
                 <tableViewController id="eBe-aA-NWw" customClass="SearchViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mlt-jn-765">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -309,7 +309,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="eBe-aA-NWw" id="sTd-Dc-i3I"/>
+                            <outlet property="dataSource" destination="eBe-aA-NWw" id="095-rt-9vu"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Intelligent Search Assistant" id="IUI-uc-Yuy"/>
@@ -318,16 +318,48 @@
             </objects>
             <point key="canvasLocation" x="-15" y="706"/>
         </scene>
-        <!--Navigation Controller - Categories-->
+        <!--Category View Controller - Intelligent Search Assistant-->
+        <scene sceneID="lle-g0-G3G">
+            <objects>
+                <tableViewController title="Intelligent Search Assistant" id="kxP-JH-fhN" customClass="CategoryViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="L9D-Bm-IE5">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XXq-nu-Gb6">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kxP-JH-fhN" id="7Oi-kl-7pO"/>
+                            <outlet property="delegate" destination="kxP-JH-fhN" id="X2i-JV-GhT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Intelligent Search Assistant" id="N3S-B7-eBw">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ybG-8Q-3I0"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpR-VO-xjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-15" y="1287"/>
+        </scene>
+        <!--Navigation Controller - Intelligent Search Assistant-->
         <scene sceneID="OXv-Ga-yfq">
             <objects>
-                <navigationController definesPresentationContext="YES" id="Jfc-dq-Q2C" sceneMemberID="viewController">
+                <navigationController title="Intelligent Search Assistant" definesPresentationContext="YES" id="Jfc-dq-Q2C" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Categories" id="GEA-TU-c0A"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gdX-AH-mNd">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="eBe-aA-NWw" kind="relationship" relationship="rootViewController" id="xO8-Yq-l2N"/>
+                        <segue destination="kxP-JH-fhN" kind="relationship" relationship="rootViewController" id="M6W-1y-8y4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWb-Xa-Mec" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -339,7 +371,7 @@
             <objects>
                 <tableViewController id="fcl-Zy-YBa" customClass="SearchDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YFq-TN-ZaB">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -367,6 +399,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="CategoryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryViewController.h"/>
+        </class>
         <class className="FavViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FavViewController.h"/>
         </class>
@@ -392,7 +427,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="f7M-SI-dhN"/>
+        <segue reference="UqQ-I5-5ot"/>
         <segue reference="mrp-WA-wU4"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UITableViewController
+@interface SearchViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 //@property (strong, nonatomic) MediaLibrary *library;
 
