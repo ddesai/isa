@@ -24,15 +24,47 @@
     [data addSection:@"Town"];
     
     [data addRegion:@"SF Bay Areay"];
-    [data addRegion:@"LA Area"];
-    
+    [data addRegion:@"bakersfield"];
+    [data addRegion:@"chico"];
+    [data addRegion:@"fresno"];
+    [data addRegion:@"gold county"];
+    [data addRegion:@"hanford"];
+    [data addRegion:@"humboldt"];
+    [data addRegion:@"inland empire"];
+    [data addRegion:@"klamath falls"];
+    [data addRegion:@"las vegas"];
+    [data addRegion:@"los angeles"];
+    [data addRegion:@"medford"];
+    [data addRegion:@"mendocino co"];
+    [data addRegion:@"merced"];
+    [data addRegion:@"modesto"];
+    [data addRegion:@"monterey"];
+    [data addRegion:@"orange co"];
+    [data addRegion:@"redding"];
+    [data addRegion:@"reno"];
+    [data addRegion:@"roseburg"];
+    [data addRegion:@"sacramento"];
+    [data addRegion:@"san luis obispo"];
+    [data addRegion:@"santa barbara"];
+    [data addRegion:@"santa maria"];
+    [data addRegion:@"siskiyou co"];
+    [data addRegion:@"stockton"];
+    [data addRegion:@"susanville"];
+    [data addRegion:@"ventura"];
+    [data addRegion:@"visalia-tulare"];
+    [data addRegion:@"yuba-sutter"];
+
     [data addCategory:@"Apt Rental"];
     [data addCategory:@"Apt for Sale"];
     [data addCategory:@"Books for Sale"];
-    
-    [data addNeighborhood:@"East Bay"];
+
+    [data addNeighborhood:@"all SF bay area"];
+    [data addNeighborhood:@"San Francisco"];
     [data addNeighborhood:@"South Bay"];
+    [data addNeighborhood:@"East Bay"];
+    [data addNeighborhood:@"Peninsula"];
     [data addNeighborhood:@"North Bay"];
+    [data addNeighborhood:@"Santa Cruz"];
     
     [data addTown:@"Fremont"];
     [data addTown:@"Hayward"];
