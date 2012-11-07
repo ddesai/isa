@@ -38,14 +38,14 @@
 		6A41BCB316408A0200946256 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6A41BCB816435D5700946256 /* ISAMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAMainViewController.h; sourceTree = "<group>"; };
 		6A41BCB916435D5700946256 /* ISAMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAMainViewController.m; sourceTree = "<group>"; };
-		9502DF93163DDB3500FD680E /* CraigApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CraigApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9502DF93163DDB3500FD680E /* ISA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9502DF97163DDB3500FD680E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9502DF99163DDB3500FD680E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9502DF9B163DDB3500FD680E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9502DF9F163DDB3500FD680E /* CraigApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CraigApp-Info.plist"; sourceTree = "<group>"; };
+		9502DF9F163DDB3500FD680E /* ISA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ISA-Info.plist"; sourceTree = "<group>"; };
 		9502DFA1163DDB3500FD680E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9502DFA3163DDB3500FD680E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9502DFA5163DDB3500FD680E /* CraigApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CraigApp-Prefix.pch"; sourceTree = "<group>"; };
+		9502DFA5163DDB3500FD680E /* ISA-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ISA-Prefix.pch"; sourceTree = "<group>"; };
 		9502DFA6163DDB3500FD680E /* CraigAppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CraigAppAppDelegate.h; sourceTree = "<group>"; };
 		9502DFA7163DDB3500FD680E /* CraigAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CraigAppAppDelegate.m; sourceTree = "<group>"; };
 		9502DFAA163DDB3500FD680E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		9502DF94163DDB3500FD680E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9502DF93163DDB3500FD680E /* CraigApp.app */,
+				9502DF93163DDB3500FD680E /* ISA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,10 +120,10 @@
 		9502DF9E163DDB3500FD680E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9502DF9F163DDB3500FD680E /* CraigApp-Info.plist */,
+				9502DF9F163DDB3500FD680E /* ISA-Info.plist */,
 				9502DFA0163DDB3500FD680E /* InfoPlist.strings */,
 				9502DFA3163DDB3500FD680E /* main.m */,
-				9502DFA5163DDB3500FD680E /* CraigApp-Prefix.pch */,
+				9502DFA5163DDB3500FD680E /* ISA-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -131,9 +131,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9502DF92163DDB3500FD680E /* CraigApp */ = {
+		9502DF92163DDB3500FD680E /* ISA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9502DFBC163DDB3500FD680E /* Build configuration list for PBXNativeTarget "CraigApp" */;
+			buildConfigurationList = 9502DFBC163DDB3500FD680E /* Build configuration list for PBXNativeTarget "ISA" */;
 			buildPhases = (
 				9502DF8F163DDB3500FD680E /* Sources */,
 				9502DF90163DDB3500FD680E /* Frameworks */,
@@ -143,9 +143,9 @@
 			);
 			dependencies = (
 			);
-			name = CraigApp;
+			name = ISA;
 			productName = CraigApp;
-			productReference = 9502DF93163DDB3500FD680E /* CraigApp.app */;
+			productReference = 9502DF93163DDB3500FD680E /* ISA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -156,7 +156,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 9502DF8D163DDB3500FD680E /* Build configuration list for PBXProject "CraigApp" */;
+			buildConfigurationList = 9502DF8D163DDB3500FD680E /* Build configuration list for PBXProject "ISA" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -168,7 +168,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9502DF92163DDB3500FD680E /* CraigApp */,
+				9502DF92163DDB3500FD680E /* ISA */,
 			);
 		};
 /* End PBXProject section */
@@ -273,9 +273,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CraigApp/CraigApp-Prefix.pch";
-				INFOPLIST_FILE = "CraigApp/CraigApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CraigApp/ISA-Prefix.pch";
+				INFOPLIST_FILE = "CraigApp/ISA-Info.plist";
+				PRODUCT_NAME = ISA;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -284,9 +284,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CraigApp/CraigApp-Prefix.pch";
-				INFOPLIST_FILE = "CraigApp/CraigApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CraigApp/ISA-Prefix.pch";
+				INFOPLIST_FILE = "CraigApp/ISA-Info.plist";
+				PRODUCT_NAME = ISA;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -294,7 +294,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9502DF8D163DDB3500FD680E /* Build configuration list for PBXProject "CraigApp" */ = {
+		9502DF8D163DDB3500FD680E /* Build configuration list for PBXProject "ISA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9502DFBA163DDB3500FD680E /* Debug */,
@@ -303,7 +303,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9502DFBC163DDB3500FD680E /* Build configuration list for PBXNativeTarget "CraigApp" */ = {
+		9502DFBC163DDB3500FD680E /* Build configuration list for PBXNativeTarget "ISA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9502DFBD163DDB3500FD680E /* Debug */,

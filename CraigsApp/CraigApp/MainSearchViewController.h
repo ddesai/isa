@@ -10,4 +10,7 @@
 
 @interface MainSearchViewController : UIViewController
 
+- (IBAction) searchCL: (id) sender;
+
+
 @end
