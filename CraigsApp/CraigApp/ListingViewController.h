@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ResultData.h"
+#import "TableCell.h"
 
 @interface ListingViewController : UITableViewController
 

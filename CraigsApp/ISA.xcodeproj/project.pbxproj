@@ -21,6 +21,9 @@
 		9502DFA4163DDB3500FD680E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502DFA3163DDB3500FD680E /* main.m */; };
 		9502DFA8163DDB3500FD680E /* CraigAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502DFA7163DDB3500FD680E /* CraigAppAppDelegate.m */; };
 		9502DFAB163DDB3500FD680E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */; };
+		9510E977164C9D9F00FDF50E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9510E976164C9D9F00FDF50E /* Default-568h@2x.png */; };
+		9510E97B164C9EB400FDF50E /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97A164C9EB400FDF50E /* TableCell.m */; };
+		9510E97E164CA1C300FDF50E /* ResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97D164CA1C300FDF50E /* ResultData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,11 @@
 		9502DFA6163DDB3500FD680E /* CraigAppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CraigAppAppDelegate.h; sourceTree = "<group>"; };
 		9502DFA7163DDB3500FD680E /* CraigAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CraigAppAppDelegate.m; sourceTree = "<group>"; };
 		9502DFAA163DDB3500FD680E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		9510E976164C9D9F00FDF50E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9510E979164C9EB400FDF50E /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
+		9510E97A164C9EB400FDF50E /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
+		9510E97C164CA1C200FDF50E /* ResultData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultData.h; sourceTree = "<group>"; };
+		9510E97D164CA1C300FDF50E /* ResultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,7 @@
 		9502DF88163DDB3500FD680E = {
 			isa = PBXGroup;
 			children = (
+				9510E976164C9D9F00FDF50E /* Default-568h@2x.png */,
 				9502DF9D163DDB3500FD680E /* CraigApp */,
 				9502DF96163DDB3500FD680E /* Frameworks */,
 				9502DF94163DDB3500FD680E /* Products */,
@@ -95,6 +104,8 @@
 		9502DF9D163DDB3500FD680E /* CraigApp */ = {
 			isa = PBXGroup;
 			children = (
+				9510E979164C9EB400FDF50E /* TableCell.h */,
+				9510E97A164C9EB400FDF50E /* TableCell.m */,
 				9502DFA6163DDB3500FD680E /* CraigAppAppDelegate.h */,
 				9502DFA7163DDB3500FD680E /* CraigAppAppDelegate.m */,
 				9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */,
@@ -111,6 +122,8 @@
 				6A41BC9C163F66BD00946256 /* MainSearchViewController.h */,
 				6A41BC9D163F66BE00946256 /* MainSearchViewController.m */,
 				6A41BC96163F4D9F00946256 /* DataModel.h */,
+				9510E97C164CA1C200FDF50E /* ResultData.h */,
+				9510E97D164CA1C300FDF50E /* ResultData.m */,
 				6A41BC97163F4D9F00946256 /* DataModel.m */,
 				9502DF9E163DDB3500FD680E /* Supporting Files */,
 			);
@@ -180,6 +193,7 @@
 			files = (
 				9502DFA2163DDB3500FD680E /* InfoPlist.strings in Resources */,
 				9502DFAB163DDB3500FD680E /* MainStoryboard.storyboard in Resources */,
+				9510E977164C9D9F00FDF50E /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +213,8 @@
 				6A41BCB1164088F700946256 /* ListingViewController.m in Sources */,
 				6A41BCB416408A0200946256 /* MapViewController.m in Sources */,
 				6A41BCBA16435D5800946256 /* ISAMainViewController.m in Sources */,
+				9510E97B164C9EB400FDF50E /* TableCell.m in Sources */,
+				9510E97E164CA1C300FDF50E /* ResultData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

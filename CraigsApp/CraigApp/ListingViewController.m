@@ -14,13 +14,21 @@
 
 @implementation ListingViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+// comment out this method as storyboarded-custom cell with cell identifier will
+// never return null, so this method is not needed (unless custom cells are
+// programmatically created
+/*- (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
     return self;
+}*/
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
 }
 
 - (void)viewDidLoad
@@ -44,25 +52,38 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    ResultData *sharedData = [ResultData getData];
+    NSArray *listings= [sharedData getArrayData];
+    return listings.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
     
+    ResultData *sharedData = [ResultData getData];
+    NSArray *listings= [sharedData getArrayData];
+    
+    NSDictionary *dic = [listings objectAtIndex:indexPath.row];
+    
+    
+    TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
+    
+    
+    cell.titleLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
+    cell.locationLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"location"]];
+    cell.priceLabel.text = [NSString stringWithFormat:@"$%@", [dic objectForKey:@"price"]];
+    cell.bedLabel.text = [NSString stringWithFormat:@"beds: %@", [dic objectForKey:@"bed"]];
+    cell.bathLabel.text = [NSString stringWithFormat:@"baths: %@", [dic objectForKey:@"bath"]];
+    cell.dateLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"date"]];
+    //NSDate *object = _objects[indexPath.row];
+    //cell.textLabel.text = [object description];
     return cell;
 }
 
