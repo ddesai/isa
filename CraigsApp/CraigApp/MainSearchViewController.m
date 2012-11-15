@@ -7,13 +7,16 @@
 //
 
 #import "MainSearchViewController.h"
+#import "CraigAppAppDelegate.h"
 
 @interface MainSearchViewController ()
-
 
 @end
 
 @implementation MainSearchViewController
+
+//Data Model 
+DataModel *dataModel;
 
 @synthesize priceMax, priceMin, keyword, bedMin, hasImage;
 
@@ -21,7 +24,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //Get the data model instance from AppDelegate
+        dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
     }
     return self;
 }
@@ -62,6 +66,9 @@
     NSError *myerror = nil;
     NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&myerror];
 
+    //Assign the obtained data results to listingResults in Data Model
+    dataModel.listingResults = data;
+
     if (myerror) {
         NSLog(@"%@", [myerror localizedDescription]);
     } else {
@@ -69,12 +76,11 @@
     }
     
     NSString *strData = [[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
-    
     NSLog(@"My Data: %@", strData);
-    NSXMLParser *xmlParser = [[NSXMLParser alloc]initWithData:data];
     
-    [xmlParser parse];
-    
+    //NSXMLParser *xmlParser = [[NSXMLParser alloc]initWithData:data];
+    //[xmlParser parse];
+
     //[[UIApplication sharedApplication] openURL:url];
     
     /*
