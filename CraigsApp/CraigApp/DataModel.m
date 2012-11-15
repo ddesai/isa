@@ -10,7 +10,7 @@
 
 @implementation DataModel
 
-@synthesize regions, categories, neighborhoods, towns, sections, currentSection, test;
+@synthesize regions, categories, neighborhoods, towns, sections, currentSection, test, listingResults;
 
 - (id)init
 {
