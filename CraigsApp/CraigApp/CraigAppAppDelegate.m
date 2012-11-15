@@ -17,11 +17,11 @@
 - (void) initializeData
 {
     data = [[DataModel alloc] init];
-    
-    [data addSection:@"Region"];
+
     [data addSection:@"Category"];
-    [data addSection:@"Neighborhood"];
-    [data addSection:@"Town"];
+    [data addSection:@"Location"];
+    //[data addSection:@"Neighborhood"];
+    //[data addSection:@"Town"];
     
     [data addRegion:@"SF Bay Areay"];
     [data addRegion:@"bakersfield"];

@@ -10,9 +10,12 @@
 
 @interface MainSearchViewController ()
 
+
 @end
 
 @implementation MainSearchViewController
+
+@synthesize priceMax, priceMin, keyword, bedMin, hasImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,38 +28,77 @@
 
 - (IBAction) searchCL:(id)sender {
     
-    NSString *testString = [NSString stringWithFormat:@"http://sfbay.craigslist.org/search/apa/eby?query=&srchType=A&minAsk=&maxAsk=&bedrooms=&nh=54&format=rss"];
-    
-    NSLog (@"%@", testString);
-    
-    NSURL *url = [NSURL URLWithString:testString];
-    
-    NSString *clPath = [url absoluteString];
+    //NSString *testString = [NSString stringWithFormat:@"http://sfbay.craigslist.org/search/apa/eby?query=&srchType=A&minAsk=&maxAsk=&bedrooms=&nh=54&format=rss"];
 
-    NSLog (@"\nPATH:-- %@", clPath);
+    NSString *localKeyword = @"";
+    NSString *minPrice = @"";
+    NSString *maxPrice = @"";
+    NSString *minBed = @"";
+    NSString *hasPic = @"";
     
+    if([keyword.text length])
+        localKeyword = keyword.text;
+
+    if([priceMin.text length])
+        minPrice = priceMin.text;
+
+    if([priceMax.text length])
+        maxPrice = priceMax.text;
+
+    if([bedMin.text length])
+        minBed = bedMin.text;
+
+    if(hasImage.on)
+        hasPic=@"1";
+    
+    NSString *s1 = [NSString stringWithFormat:@"http://sfbay.craigslist.org/search/apa/eby?query=%@&srchType=A&minAsk=%@&maxAsk=%@&bedrooms=%@&hasPic=%@&nh=54&format=rss", localKeyword, minPrice, maxPrice, minBed, hasPic];
+    
+    NSString *searchString = [s1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //NSString *searchString = [NSString stringWithUTF8String:[s1 UTF8String]];
+    NSLog (@"%@", searchString);
+    
+    NSURL *url = [NSURL URLWithString:searchString];
+
     NSError *myerror = nil;
     NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&myerror];
-    
+
     if (myerror) {
         NSLog(@"%@", [myerror localizedDescription]);
     } else {
         NSLog(@"Data has loaded successfully.");
     }
     
-    NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSString *strData = [[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
+    
+    NSLog(@"My Data: %@", strData);
     NSXMLParser *xmlParser = [[NSXMLParser alloc]initWithData:data];
     
     [xmlParser parse];
     
-    //NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    //[[UIApplication sharedApplication] openURL:url];
     
-    //NSArray *resultArray = [results valueForKey:@"results"];
+    /*
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    //NSDictionary *firstItem = [resultArray objectAtIndex:0];
+    NSArray *resultArray = [results objectForKey:@"rdf"];
     
-    //NSNumber *elevation = [firstItem objectForKey:@"elevation"];
+    NSDictionary *firstItem = [resultArray objectAtIndex:0];
     
+    NSNumber *elevation = [firstItem objectForKey:@"elevation"];
+    */
+}
+
+- (IBAction) dismissKeyboard:(id)sender
+{
+    [sender resignFirstResponder];
+}
+
+- (IBAction) dismissKeyboardOutside:(id)sender
+{
+    [priceMax resignFirstResponder];
+    [priceMin resignFirstResponder];
+    [bedMin resignFirstResponder];
+    [keyword resignFirstResponder];
 }
 
 

@@ -58,7 +58,7 @@ CraigAppAppDelegate* appDelegate;
     // Return the number of rows in the section.
     appDelegate = (CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate];
     //return [[appDelegate data] numberOfSections];
-    return 4;
+    return 2;
     
 }
 
@@ -77,7 +77,7 @@ CraigAppAppDelegate* appDelegate;
     }
     
     cell.textLabel.text = [[appDelegate data] getSectionAtIndex:[indexPath row]];
-    cell.detailTextLabel.text = @"hello";
+    cell.detailTextLabel.text = [[appDelegate data] test];
     return cell;
     
 }

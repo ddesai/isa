@@ -10,7 +10,7 @@
 
 @implementation DataModel
 
-@synthesize regions, categories, neighborhoods, towns, sections, currentSection;
+@synthesize regions, categories, neighborhoods, towns, sections, currentSection, test;
 
 - (id)init
 {
@@ -21,6 +21,7 @@
         categories = [[NSMutableArray alloc] init];
         neighborhoods = [[NSMutableArray alloc] init];
         towns = [[NSMutableArray alloc] init];
+        test = @"HelloT";
     }
     return self;
 }
