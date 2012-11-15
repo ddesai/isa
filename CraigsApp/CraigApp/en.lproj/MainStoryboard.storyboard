@@ -319,15 +319,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HIl-sV-YBS">
-                                <rect key="frame" x="51" y="63" width="218" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="XwG-3w-Rzk" id="2Z5-TW-rHv"/>
-                                    <outlet property="delegate" destination="XwG-3w-Rzk" id="GNK-96-xvO"/>
-                                </connections>
-                            </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UdU-va-MYV">
                                 <rect key="frame" x="51" y="28" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -357,6 +348,16 @@
                                     <segue destination="ZMg-6s-HWz" kind="push" id="55c-hK-kCY"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="nSR-Pu-1on">
+                                <rect key="frame" x="31" y="68" width="258" height="155"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="XwG-3w-Rzk" id="wRq-38-4If"/>
+                                    <outlet property="delegate" destination="XwG-3w-Rzk" id="464-Dr-EwF"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -366,7 +367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTw-OT-mcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="418" y="82"/>
+            <point key="canvasLocation" x="414" y="82"/>
         </scene>
         <!--Navigation Controller - Intelligent Search Assistant-->
         <scene sceneID="OXv-Ga-yfq">
@@ -382,7 +383,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="XwG-3w-Rzk" kind="relationship" relationship="rootViewController" id="21a-8K-UZg"/>
+                        <segue destination="XwG-3w-Rzk" kind="relationship" relationship="rootViewController" id="KvA-Ah-QQ6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWb-Xa-Mec" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -421,6 +422,47 @@
             <point key="canvasLocation" x="872" y="681"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FavViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavViewController.h"/>
+        </class>
+        <class className="ISAMainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ISAMainViewController.h"/>
+        </class>
+        <class className="ListingViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingViewController.h"/>
+        </class>
+        <class className="MainSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="dismissKeyboardOutside:"/>
+                <relationship kind="action" name="searchCL:"/>
+                <relationship kind="outlet" name="bedMin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="hasImage" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="keyword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceMax" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceMin" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+        </class>
+        <class className="SearchDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchDetailViewController.h"/>
+        </class>
+        <class className="TableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bathLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

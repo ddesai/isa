@@ -19,6 +19,7 @@
 @property (strong, atomic) NSMutableArray *categories;
 @property (strong, atomic) NSMutableArray *neighborhoods;
 @property (strong, atomic) NSMutableArray *towns;
+@property (strong, atomic) NSString *test;
 
 // ******** Craigslist Sections
 - (void)addSection:(NSString *) newMember;

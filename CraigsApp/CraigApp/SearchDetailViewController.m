@@ -59,8 +59,8 @@ DataModel *data;
     
     switch ([data currentSection])
     {
-        case 0: return [data numberOfRegions];
-        case 1: return [data numberOfCategories];
+        case 1: return [data numberOfRegions];
+        case 0: return [data numberOfCategories];
         case 2: return [data numberOfNeighborhoods];
         case 3: return [data numberOfTowns];
         default: return 1;
@@ -81,8 +81,8 @@ DataModel *data;
 
     switch ([data currentSection])
     {
-        case 0: cell.textLabel.text = [data getRegionAtIndex:[indexPath row]]; break;
-        case 1: cell.textLabel.text = [data getCategoryAtIndex:[indexPath row]]; break;
+        case 1: cell.textLabel.text = [data getRegionAtIndex:[indexPath row]]; break;
+        case 0: cell.textLabel.text = [data getCategoryAtIndex:[indexPath row]]; break;
         case 2: cell.textLabel.text = [data getNeighborhoodAtIndex:[indexPath row]]; break;
         case 3: cell.textLabel.text = [data getTownAtIndex:[indexPath row]]; break;
         default: cell.textLabel.text = @"Error";
@@ -142,6 +142,7 @@ DataModel *data;
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    data.test = @"Hi There";
 }
 
 @end
