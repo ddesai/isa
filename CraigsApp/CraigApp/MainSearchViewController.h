@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainSearchViewController : UIViewController
+@interface MainSearchViewController : UIViewController 
 
 - (IBAction) searchCL: (id) sender;
 - (IBAction) dismissKeyboard:(id)sender;

@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A2438D31655846E00B51589 /* SearchSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchSelectionDelegate.h; sourceTree = "<group>"; };
 		6A41BC96163F4D9F00946256 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		6A41BC97163F4D9F00946256 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		6A41BC99163F5E7400946256 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 				9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */,
 				6A41BCB816435D5700946256 /* ISAMainViewController.h */,
 				6A41BCB916435D5700946256 /* ISAMainViewController.m */,
+				6A2438D31655846E00B51589 /* SearchSelectionDelegate.h */,
 				6A41BCB316408A0200946256 /* MapViewController.m */,
 				6A41BCB216408A0200946256 /* MapViewController.h */,
 				6A41BCAF164088F700946256 /* ListingViewController.h */,

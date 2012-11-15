@@ -30,6 +30,7 @@ DataModel *dataModel;
     return self;
 }
 
+
 - (IBAction) searchCL:(id)sender {
     
     //NSString *testString = [NSString stringWithFormat:@"http://sfbay.craigslist.org/search/apa/eby?query=&srchType=A&minAsk=&maxAsk=&bedrooms=&nh=54&format=rss"];

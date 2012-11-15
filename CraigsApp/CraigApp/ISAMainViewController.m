@@ -22,6 +22,7 @@
 CraigAppAppDelegate* appDelegate;
 //DataModel *dataModel;
 
+@synthesize myTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +31,12 @@ CraigAppAppDelegate* appDelegate;
         // Custom initialization
     }
     return self;
+}
+
+// searchSelectionChanged delegate method
+- (void) searchCategoryChanged: (NSString*) data
+{
+    [self.myTableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -65,21 +72,35 @@ CraigAppAppDelegate* appDelegate;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+#import "DataModel.h"
+    DataModel *dataModel;
+    dataModel = [appDelegate data];
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    
+
     // Configure the cell...
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = [[appDelegate data] getSectionAtIndex:[indexPath row]];
-    cell.detailTextLabel.text = [[appDelegate data] test];
+    if([dataModel currentSection] == -1) {
+        cell.textLabel.text = [dataModel getSectionAtIndex:[indexPath row]];
+        NSString *selectedText = @" ";
+        switch ([indexPath row])
+        {
+            case 1: selectedText = @"SF Bay Area"; break;
+            case 0: selectedText = @"Apt Rental"; break;
+            default: selectedText = @" ";
+        }
+        cell.detailTextLabel.text = selectedText;
+    }
+    else {
+        if([dataModel currentSection] == [indexPath row])
+            cell.detailTextLabel.text = [dataModel test];
+    }
     return cell;
-    
 }
 
 /*
@@ -139,6 +160,7 @@ CraigAppAppDelegate* appDelegate;
      */
     
     SearchDetailViewController *ivc = [[SearchDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    ivc.searchDelegate = self;
     
     //ivc.title = [[data getSectionAtIndex:[indexPath row]]];
     
