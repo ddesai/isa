@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchSelectionDelegate.h"
 
 @interface SearchDetailViewController : UITableViewController
+{
+    id <SearchSelectionDelegate> searchDelegate;
+}
+
+@property (nonatomic) id <SearchSelectionDelegate> searchDelegate;
 
 @end

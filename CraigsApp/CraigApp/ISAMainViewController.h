@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchSelectionDelegate.h"
 
-@interface ISAMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ISAMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SearchSelectionDelegate>
+
+@property (weak) IBOutlet UITableView* myTableView;
 
 @end
