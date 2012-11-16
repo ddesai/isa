@@ -53,7 +53,8 @@ DataModel *data;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
+    //Returns the # of rows based on what type it is of
+    // This will later change to use the objects from Data Model
     switch ([data currentSection])
     {
         case 1: return [data numberOfRegions];
@@ -76,6 +77,7 @@ DataModel *data;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
+    // Depending on what the user selected from the ISAMainView, it renders the DetailView
     switch ([data currentSection])
     {
         case 1: cell.textLabel.text = [data getRegionAtIndex:[indexPath row]]; break;
@@ -93,6 +95,7 @@ DataModel *data;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Depending on what user selected, it updates the Data Model with the selection
     NSString *selectedText = @" ";
     switch ([data currentSection])
     {

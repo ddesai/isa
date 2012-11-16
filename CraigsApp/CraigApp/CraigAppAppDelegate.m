@@ -14,6 +14,8 @@
 @synthesize startTabBarController;
 @synthesize data;
 
+// Initializes the Data Model
+// Later this will get changed to use classes/objects
 - (void) initializeData
 {
     data = [[DataModel alloc] init];
@@ -79,8 +81,6 @@
    [window addSubview:startTabBarController.view];
    [window makeKeyAndVisible];
 
-   
-    // Override point for customization after application launch.
     return YES;
 }
 							

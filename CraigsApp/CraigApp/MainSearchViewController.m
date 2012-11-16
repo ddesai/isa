@@ -30,7 +30,9 @@ DataModel *dataModel;
     return self;
 }
 
-
+// Sends the request to the Craigslist
+// Gets the results
+// Puts the results in the DataModel in NSData format
 - (IBAction) searchCL:(id)sender {
     
     //NSString *testString = [NSString stringWithFormat:@"http://sfbay.craigslist.org/search/apa/eby?query=&srchType=A&minAsk=&maxAsk=&bedrooms=&nh=54&format=rss"];
@@ -95,11 +97,13 @@ DataModel *dataModel;
     */
 }
 
+// Dismiss the Keyboard when clicked on RETURN
 - (IBAction) dismissKeyboard:(id)sender
 {
     [sender resignFirstResponder];
 }
 
+// Dismiss the keyboard when clicked on outside of the keyboard
 - (IBAction) dismissKeyboardOutside:(id)sender
 {
     [priceMax resignFirstResponder];

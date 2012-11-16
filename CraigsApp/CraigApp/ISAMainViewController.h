@@ -11,6 +11,7 @@
 
 @interface ISAMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SearchSelectionDelegate>
 
+// pointer to the table - to access it 
 @property (weak) IBOutlet UITableView* myTableView;
 
 @end

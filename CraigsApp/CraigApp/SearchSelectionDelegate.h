@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+// This is used to delegate the data updates from the detailViewController
+// Back to the main screen
 @protocol SearchSelectionDelegate <NSObject>
 
 - (void) searchCategoryChanged: (NSString*) data;
