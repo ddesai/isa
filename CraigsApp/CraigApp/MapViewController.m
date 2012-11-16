@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     
+    // this is a test url string from google...to be changed later
     NSString *url = @"https://google-developers.appspot.com/maps/documentation/javascript/examples/map-geolocation";
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [map loadRequest:request];

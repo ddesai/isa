@@ -76,6 +76,8 @@
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
     
     
+    // hook up iboutlets from cells to (dummy) data
+    
     cell.titleLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
     cell.locationLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"location"]];
     cell.priceLabel.text = [NSString stringWithFormat:@"$%@", [dic objectForKey:@"price"]];

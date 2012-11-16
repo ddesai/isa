@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+// Test data for use in Listings
 @interface ResultData : NSObject
 {
     NSMutableArray *parsedData;

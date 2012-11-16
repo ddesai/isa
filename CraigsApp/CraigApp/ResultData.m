@@ -23,6 +23,8 @@ static ResultData *sharedInstance = nil;
     if (self = [super init])
     {
         
+        // Test (dummy) data for use in Listings
+        
         NSDictionary *dic1 = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"Pretty House", @"title", @"San Jose", @"location",  @"2", @"bed", @"2" , @"bath" , @"3000", @"price", @"today", @"date",nil];
         
         NSDictionary *dic2 = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"Another House", @"title", @"San Jose", @"location",  @"2", @"bed", @"2" , @"bath" , @"2000", @"price", @"today", @"date",nil];
