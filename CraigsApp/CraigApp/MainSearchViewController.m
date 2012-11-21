@@ -58,7 +58,7 @@ DataModel *dataModel;
     if(hasImage.on)
         hasPic=@"1";
     
-    NSString *s1 = [NSString stringWithFormat:@"http://sfbay.craigslist.org/search/apa/eby?query=%@&srchType=A&minAsk=%@&maxAsk=%@&bedrooms=%@&hasPic=%@&nh=54&format=rss", localKeyword, minPrice, maxPrice, minBed, hasPic];
+    NSString *s1 = [NSString stringWithFormat:@"http://sfbay.craigslist.org/search/apa/eby?query=%@&srchType=A&minAsk=%@&maxAsk=%@&bedrooms=%@&hasPic=%@&format=rss", localKeyword, minPrice, maxPrice, minBed, hasPic];
     
     NSString *searchString = [s1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //NSString *searchString = [NSString stringWithUTF8String:[s1 UTF8String]];
@@ -70,6 +70,9 @@ DataModel *dataModel;
     NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&myerror];
 
     //Assign the obtained data results to listingResults in Data Model
+    
+    // Wrong location, hw copied/pasted
+            dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
     dataModel.listingResults = data;
 
     if (myerror) {

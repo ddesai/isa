@@ -10,6 +10,8 @@
 #import "ResultData.h"
 #import "TableCell.h"
 
-@interface ListingViewController : UITableViewController
+@interface ListingViewController : UITableViewController <NSXMLParserDelegate>
+
+-(BOOL)parseDocumentWithNSData:(NSData *)data;
 
 @end

@@ -7,12 +7,17 @@
 //
 
 #import "ListingViewController.h"
+#import "CraigAppAppDelegate.h"
 
 @interface ListingViewController ()
 
 @end
 
 @implementation ListingViewController
+{
+DataModel *dataModel;
+NSMutableArray *listingsUrl;
+}
 
 // comment out this method as storyboarded-custom cell with cell identifier will
 // never return null, so this method is not needed (unless custom cells are
@@ -33,6 +38,10 @@
 
 - (void)viewDidLoad
 {
+    
+    //GET DARA OUT OF NSDATA THEN PARSE
+    // how to get data from appdelegate?
+    
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -58,19 +67,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    ResultData *sharedData = [ResultData getData];
-    NSArray *listings= [sharedData getArrayData];
-    return listings.count;
+
+    
+    //Get the data model instance from AppDelegate
+    dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
+    
+    [self parseDocumentWithNSData:dataModel.listingResults];
+    
+    return listingsUrl.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     
-    ResultData *sharedData = [ResultData getData];
-    NSArray *listings= [sharedData getArrayData];
+
     
-    NSDictionary *dic = [listings objectAtIndex:indexPath.row];
+    //NSDictionary *dic = [listingsUrl objectAtIndex:indexPath.row];
+    NSString *title = [listingsUrl objectAtIndex:indexPath.row];
     
     
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
@@ -78,12 +92,12 @@
     
     // hook up iboutlets from cells to (dummy) data
     
-    cell.titleLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
-    cell.locationLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"location"]];
+    cell.titleLabel.text = title;
+    /*cell.locationLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"location"]];
     cell.priceLabel.text = [NSString stringWithFormat:@"$%@", [dic objectForKey:@"price"]];
     cell.bedLabel.text = [NSString stringWithFormat:@"beds: %@", [dic objectForKey:@"bed"]];
     cell.bathLabel.text = [NSString stringWithFormat:@"baths: %@", [dic objectForKey:@"bath"]];
-    cell.dateLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"date"]];
+    cell.dateLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"date"]];*/
     //NSDate *object = _objects[indexPath.row];
     //cell.textLabel.text = [object description];
     return cell;
@@ -130,6 +144,8 @@
 
 #pragma mark - Table view delegate
 
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
@@ -140,5 +156,94 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
+-(BOOL)parseDocumentWithNSData:(NSData *)data{
+    if (data == nil)
+        return NO;
+    
+    // this is the parsing machine
+    NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithData:data];
+    
+    // this class will handle the events
+    [xmlparser setDelegate:self];
+    [xmlparser setShouldResolveExternalEntities:NO];
+    
+    // now parse the document
+    BOOL ok = [xmlparser parse];
+    if (ok == NO)
+        NSLog(@"error");
+    else
+        NSLog(@"OK");
+    
+    //[xmlparser release];
+    return ok;
+}
+
+-(void)parserDidStartDocument:(NSXMLParser *)parser {
+    NSLog(@"didStartDocument");
+}
+
+-(void)parserDidEndDocument:(NSXMLParser *)parser {
+    NSLog(@"didEndDocument");
+}
+
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
+    
+    NSLog(@"didStartElement: %@", elementName);
+  
+    
+    if (![elementName isEqualToString:@"rdf:li"])
+        return;
+    
+    NSString * detailUrl = [attributeDict objectForKey:@"rdf:resource"];
+    
+    if (!listingsUrl)
+        listingsUrl = [[NSMutableArray alloc] init];
+    
+    [listingsUrl addObject:detailUrl];
+    
+    /*if (namespaceURI != nil)
+        NSLog(@"namespace: %@", namespaceURI);
+    
+    if (qName != nil)
+        NSLog(@"qualifiedName: %@", qName);
+    
+    // print all attributes for this element
+    NSEnumerator *attribs = [attributeDict keyEnumerator];
+    NSString *key, *value;
+    
+    while((key = [attribs nextObject]) != nil) {
+        value = [attributeDict objectForKey:key];
+        NSLog(@"  attribute: %@ = %@", key, value);*/
+    
+    //if(![elementName isEqual:@"rdf:Seq"])
+        //return;
+    
+    
+}
+
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    NSLog(@"didEndElement: %@", elementName);
+}
+
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+    
+    NSLog(@"element has value %@\n", string);
+}
+
+
+// error handling
+-(void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+    NSLog(@"XMLParser error: %@", [parseError localizedDescription]);
+}
+
+-(void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)validationError {
+    NSLog(@"XMLParser error: %@", [validationError localizedDescription]);
+}
+
+
+
 
 @end
