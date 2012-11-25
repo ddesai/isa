@@ -24,8 +24,6 @@ DataModel *dataModel;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        //Get the data model instance from AppDelegate
-        dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
     }
     return self;
 }
@@ -70,9 +68,6 @@ DataModel *dataModel;
     NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&myerror];
 
     //Assign the obtained data results to listingResults in Data Model
-    
-    // Wrong location, hw copied/pasted
-            dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
     dataModel.listingResults = data;
 
     if (myerror) {
@@ -119,7 +114,10 @@ DataModel *dataModel;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
+
+    // Obtain the Data Model from the App Delegate
+    dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
 }
 
 - (void)didReceiveMemoryWarning
