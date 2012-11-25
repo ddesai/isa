@@ -28,9 +28,9 @@
     return [self initCategoryWithName:@"Please Initialize" andCode:@"PLZ-INIT"];
 }
 
-- (void) addSubCat:(NSString*)newName andCode:(NSString*)newCode
+- (void) addSubCat:(NSString*)newName andCode:(NSString*)newCode andType:(SearchSubCatType)newType
 {
-    SubCategory *sc = [[SubCategory alloc] initSubcatWithName:newName andCode:newCode andParent:name];
+    SubCategory *sc = [[SubCategory alloc] initSubcatWithName:newName andCode:newCode andParent:self.name andType:newType];
     [subcats addObject:sc];
 }
 
@@ -38,22 +38,23 @@
 
 @implementation SubCategory
 
-@synthesize parent, name, codeName;
+@synthesize parent, name, codeName, searchType;
 
 
-- (id) initSubcatWithName:(NSString*)newName andCode:(NSString*)newCode andParent:(NSString*)newParent
+- (id) initSubcatWithName:(NSString*)newName andCode:(NSString*)newCode andParent:(NSString*)newParent andType:(SearchSubCatType)newType
 {
     if(self = [super init]) {
         name = newName;
         codeName = newCode;
         parent = newParent;
+        searchType = newType;
     }
     return self;
 }
 
 - (id)init
 {
-    return [self initSubcatWithName:@"PLEASE INITIALIZE" andCode:@"PLZ_INIT" andParent:@"Please Initialize"];
+    return [self initSubcatWithName:@"PLEASE INITIALIZE" andCode:@"PLZ_INIT" andParent:@"Please Initialize" andType:SEARCH_INVALID];
 }
 
 

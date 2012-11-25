@@ -14,6 +14,8 @@
 - (IBAction) dismissKeyboard:(id)sender;
 - (IBAction) dismissKeyboardOutside:(id)sender;
 
+@property (weak) IBOutlet UILabel* appTitle;
+@property (weak) IBOutlet UILabel* bedTitle;
 @property (weak) IBOutlet UITextField* keyword;
 @property (weak) IBOutlet UITextField* priceMin;
 @property (weak) IBOutlet UITextField* priceMax;

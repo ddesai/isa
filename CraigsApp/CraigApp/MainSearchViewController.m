@@ -18,7 +18,7 @@
 //Data Model 
 DataModel *dataModel;
 
-@synthesize priceMax, priceMin, keyword, bedMin, hasImage;
+@synthesize priceMax, priceMin, keyword, bedMin, hasImage, appTitle, bedTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -115,7 +115,6 @@ DataModel *dataModel;
     [keyword resignFirstResponder];
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -123,6 +122,29 @@ DataModel *dataModel;
 
     // Obtain the Data Model from the App Delegate
     dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
+    [self viewControlBasedOnSearchType];
+}
+
+// This method controls the View based on the Search Type
+// For Housing Search Type, it displays # of beds otherwise not
+// Also changes the title of the screen based on the type
+- (void) viewControlBasedOnSearchType
+{
+    BOOL hideBed = YES;
+    switch([dataModel currentCategory].searchType)
+    {
+        case SEARCH_HOUSING:
+            appTitle.text = @"ISA for Housing";
+            hideBed = NO;
+            break;
+        case SEARCH_FORSALE:
+            appTitle.text = @"ISA for Sale";
+            break;
+        default:
+            break;
+    }
+    [bedTitle setHidden:hideBed];
+    [bedMin setHidden:hideBed];
 }
 
 - (void)didReceiveMemoryWarning
