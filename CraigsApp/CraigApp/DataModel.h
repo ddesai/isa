@@ -12,11 +12,12 @@
 
 typedef enum
 {
-  SECTION_INIT=-1,
-  SECTION_CATEGORY,
-  SECTION_LOCATION,
-  SECTION_INVALID
+    SECTION_INIT=-1,
+    SECTION_CATEGORY,
+    SECTION_LOCATION,
+    SECTION_INVALID
 } SectionTypeEnum;
+
 
 @interface DataModel : NSObject
 {

@@ -24,9 +24,9 @@
         locations = [[NSMutableArray alloc] init];
         [self populateLocations];
         
-        regions = [[NSMutableArray alloc] init];
-        neighborhoods = [[NSMutableArray alloc] init];
-        towns = [[NSMutableArray alloc] init];
+        [self addSection:@"Category"];
+        [self addSection:@"Location"];
+
         test = @"HelloT";
         
         currentSection = SECTION_INIT;
@@ -74,7 +74,7 @@
 }
 
 
-// ******** Regions
+// ******** Locations
 - (Location *)getLocationAtIndex: (NSUInteger) index
 {
     return [locations objectAtIndex:index];
@@ -93,23 +93,6 @@
 - (NSUInteger)numberOfLocations
 {
     return [locations count];
-}
-
-
-// ******** Regions
-- (void)addRegion: (NSString *) newMember
-{
-    [regions addObject:newMember];
-}
-
-- (NSString *)getRegionAtIndex: (NSUInteger) index
-{
-    return [regions objectAtIndex:index];
-}
-
-- (NSUInteger)numberOfRegions
-{
-    return [regions count];
 }
 
 // ******** Craigslist Locations
@@ -228,39 +211,6 @@
     
     // Adds more subcategories in categories Array
     [categories addObjectsFromArray:[c subcats]];
-}
-
-
-// ******** Neighborhoods
-- (void)addNeighborhood:(NSString *) newMember
-{
-    [neighborhoods addObject:newMember];
-}
-
-- (NSString *)getNeighborhoodAtIndex: (NSUInteger) index
-{
-    return [neighborhoods objectAtIndex:index];
-}
-
-- (NSUInteger)numberOfNeighborhoods
-{
-    return [neighborhoods count];
-}
-
-// ********** Towns
-- (void)addTown:(NSString *) newMember
-{
-    [towns addObject:newMember];
-}
-
-- (NSString *)getTownAtIndex: (NSUInteger) index
-{
-    return [towns objectAtIndex:index];
-}
-
-- (NSUInteger)numberOfTowns
-{
-    return [towns count];
 }
 
 @end
