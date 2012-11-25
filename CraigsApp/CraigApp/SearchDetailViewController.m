@@ -85,7 +85,12 @@ DataModel *data;
             cell.textLabel.text = [data getCategoryNameAtIndex:[indexPath row]];
             cell.backgroundColor = [UIColor whiteColor];
             if( [cell.textLabel.text isEqualToString:@"For Sale"] ||
-                [cell.textLabel.text isEqualToString:@"Housing"])
+                [cell.textLabel.text isEqualToString:@"Housing"] ||
+                [cell.textLabel.text isEqualToString:@"Community"] ||
+                [cell.textLabel.text isEqualToString:@"Gigs"] ||
+                [cell.textLabel.text isEqualToString:@"Services"] ||
+                [cell.textLabel.text isEqualToString:@"Resumes"]
+               )
                 cell.backgroundColor = [UIColor greenColor];
             break;
         

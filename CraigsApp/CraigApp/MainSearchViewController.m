@@ -140,6 +140,18 @@ DataModel *dataModel;
         case SEARCH_FORSALE:
             appTitle.text = @"ISA for Sale";
             break;
+        case SEARCH_GIGS:
+            appTitle.text = @"ISA for Gigs";
+            break;
+        case SEARCH_COMMUNITY:
+            appTitle.text = @"ISA for Community";
+            break;
+        case SEARCH_SERVICES:
+            appTitle.text = @"ISA for Services";
+            break;
+        case SEARCH_RESUME:
+            appTitle.text = @"ISA for Resume";
+            break;
         default:
             break;
     }
