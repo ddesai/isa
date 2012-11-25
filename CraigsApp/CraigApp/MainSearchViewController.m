@@ -40,6 +40,8 @@ DataModel *dataModel;
     NSString *maxPrice = @"";
     NSString *minBed = @"";
     NSString *hasPic = @"";
+    NSString *metro = @"";
+    NSString *clCategory = @"";
     
     if([keyword.text length])
         localKeyword = keyword.text;
@@ -55,8 +57,11 @@ DataModel *dataModel;
 
     if(hasImage.on)
         hasPic=@"1";
-    
-    NSString *s1 = [NSString stringWithFormat:@"http://sfbay.craigslist.org/search/apa/eby?query=%@&srchType=A&minAsk=%@&maxAsk=%@&bedrooms=%@&hasPic=%@&format=rss", localKeyword, minPrice, maxPrice, minBed, hasPic];
+
+    metro = [[dataModel currentLocation] codeName];
+    clCategory = [[dataModel currentCategory] codeName];
+
+    NSString *s1 = [NSString stringWithFormat:@"http://%@.craigslist.org/search/%@?query=%@&srchType=A&minAsk=%@&maxAsk=%@&bedrooms=%@&hasPic=%@&format=rss", metro, clCategory, localKeyword, minPrice, maxPrice, minBed, hasPic];
     
     NSString *searchString = [s1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //NSString *searchString = [NSString stringWithUTF8String:[s1 UTF8String]];

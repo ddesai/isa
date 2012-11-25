@@ -18,7 +18,7 @@
     if (self) {
         name = newName;
         codeName = newCode;
-        subcats = [[NSMutableDictionary alloc] init];
+        subcats = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -31,7 +31,7 @@
 - (void) addSubCat:(NSString*)newName andCode:(NSString*)newCode
 {
     SubCategory *sc = [[SubCategory alloc] initSubcatWithName:newName andCode:newCode andParent:name];
-    [subcats setObject:sc forKey:newCode];
+    [subcats addObject:sc];
 }
 
 @end

@@ -46,7 +46,8 @@
 // Region Class
 @interface Region : Location
 
-@property (strong, atomic) NSMutableDictionary *towns;
+//@property (strong, atomic) NSMutableDictionary *towns;
+@property (strong, atomic) NSMutableArray *towns;
 
 - (id) initRegionWithName:(NSString*)newName andCode:(NSString*)newCode andParent:(NSString*)newParent;
 - (id) initRegionWithName:(NSString*)newName andCode:(NSString*)newCode;
@@ -63,7 +64,8 @@
 // Metro Class
 @interface Metro : Location
 
-@property (strong, atomic) NSMutableDictionary *regions;
+//@property (strong, atomic) NSMutableDictionary *regions;
+@property (strong, atomic) NSMutableArray *regions;
 
 - (id) initMetroWithName:(NSString*)newName andCode:(NSString*)newCode andParent:(NSString*)newParent;
 - (id) initMetroWithName:(NSString*)newName andCode:(NSString*)newCode;
@@ -80,7 +82,8 @@
 // Country Class
 @interface Country : Location
 
-@property (strong, atomic) NSMutableDictionary *metros;
+//@property (strong, atomic) NSMutableDictionary *metros;
+@property (strong, atomic) NSMutableArray *metros;
 
 - (id) initCountryWithName:(NSString*)newName andCode:(NSString*)newCode andParent:(NSString*)newParent;
 - (id) initCountryWithName:(NSString*)newName andCode:(NSString*)newCode;

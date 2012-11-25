@@ -130,13 +130,6 @@
     [m addRegion:@"Santa Cruz" andCode:@"scz" andParent:@"sfbay"];
     [c addMetro:m];
 
-    [c addMetro:@"San Francisco SFBay" andCode:@"sfc" andParent:@"usa"];
-    [c addMetro:@"South Bay SFBay" andCode:@"sby" andParent:@"usa"];
-    [c addMetro:@"East Bay SFBay" andCode:@"eby" andParent:@"usa"];
-    [c addMetro:@"Peninsula SFBay" andCode:@"pen" andParent:@"usa"];
-    [c addMetro:@"North Bay SFBay" andCode:@"nby" andParent:@"usa"];
-    [c addMetro:@"Santa Cruz SFBay" andCode:@"scz" andParent:@"usa"];
-
     [c addMetro:@"bakersfield" andCode:@"bakersfield" andParent:@"usa"];
     [c addMetro:@"chico" andCode:@"chico" andParent:@"usa"];
     [c addMetro:@"fresno" andCode:@"fresno" andParent:@"usa"];
@@ -166,7 +159,7 @@
     [c addMetro:@"visalia-tulare" andCode:@"visalia" andParent:@"usa"];
     [c addMetro:@"yuba-sutter" andCode:@"yubasutter" andParent:@"usa"];
     
-    [locations addObjectsFromArray:[[c metros] allValues]];
+    [locations addObjectsFromArray:[c metros]];
 }
 
 // ******** Craigslist Categories
@@ -189,7 +182,7 @@
     //[categories setObject:c forKey:@"hhh"];
 
     // Adds these subcategories in categories Array
-    [categories addObjectsFromArray:[[c subcats] allValues]];
+    [categories addObjectsFromArray:[c subcats]];
     
     // Initialize the Housing Category and subcats
     c = [[Category alloc] initCategoryWithName:@"For Sale" andCode:@"sss"];
@@ -232,10 +225,9 @@
     [c addSubCat:@"Photo/Video" andCode:@"pha"];
     [c addSubCat:@"Toys & Games" andCode:@"taa"];
     [c addSubCat:@"Video Gaming" andCode:@"vga"];
-    //[categories setObject:c forKey:@"sss"];
     
     // Adds more subcategories in categories Array
-    [categories addObjectsFromArray:[[c subcats] allValues]];
+    [categories addObjectsFromArray:[c subcats]];
 }
 
 

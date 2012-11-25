@@ -19,7 +19,6 @@
 //Data Model
 DataModel *data;
 
-//searchSelectionChangedDelegate
 @synthesize searchDelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -58,10 +57,10 @@ DataModel *data;
     //Returns the # of rows based on what type it is of
     switch ([data currentSection])
     {
-        case SECTION_CATEGORY: return [data numberOfCategories];
-        case SECTION_LOCATION: return [data numberOfLocations];
-        //case 3: return [data numberOfNeighborhoods];
-        //case 4: return [data numberOfTowns];
+        case SECTION_CATEGORY:
+            return [data numberOfCategories];
+        case SECTION_LOCATION:
+            return [data numberOfLocations];
         default: return 1;
     }
 }
@@ -83,17 +82,17 @@ DataModel *data;
     {
         // Categories
         case SECTION_CATEGORY:
-            //cell.textLabel.text = [data getCategoryAtIndex:[indexPath row]];
             cell.textLabel.text = [data getCategoryNameAtIndex:[indexPath row]];
+            cell.backgroundColor = [UIColor whiteColor];
+            if( [cell.textLabel.text isEqualToString:@"For Sale"] ||
+                [cell.textLabel.text isEqualToString:@"Housing"])
+                cell.backgroundColor = [UIColor greenColor];
             break;
         
         // Locations
         case SECTION_LOCATION:
-            //cell.textLabel.text = [data getRegionAtIndex:[indexPath row]];
             cell.textLabel.text = [data getLocationNameAtIndex:[indexPath row]];
             break;
-        //case 2: cell.textLabel.text = [data getNeighborhoodAtIndex:[indexPath row]]; break;
-        //case 3: cell.textLabel.text = [data getTownAtIndex:[indexPath row]]; break;
         default: cell.textLabel.text = @"Error";
     }
     
@@ -120,8 +119,6 @@ DataModel *data;
             [data setCurrentLocation:[data getLocationAtIndex:[indexPath row]]];
             selectedText = [[data currentLocation] name];
             break;
-        //case 2: selectedText = [data getNeighborhoodAtIndex:[indexPath row]]; break;
-        //case 3: selectedText = [data getTownAtIndex:[indexPath row]]; break;
         default: selectedText = @"Error";
     }
     data.test = selectedText;

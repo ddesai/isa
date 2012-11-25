@@ -74,7 +74,7 @@
     self = [super initLocationWithName:newName andCode:newCode andParent:newParent];
     if(self)
     {
-        towns = [[NSMutableDictionary alloc] init];
+        towns = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -91,7 +91,8 @@
 
 - (void) addTown:(Town *)t
 {
-    [towns setObject:t forKey:t.codeName];
+    //[towns setObject:t forKey:t.codeName];
+    [towns addObject:t];
 }
 
 - (void) addTown:(NSString*)newName andCode:(NSString*)newCode
@@ -102,7 +103,8 @@
 - (void) addTown:(NSString*)newName andCode:(NSString*)newCode andParent:(NSString*) newParent
 {
     Town *t = [[Town alloc] initTownWithName:newName andCode:newCode andParent:newParent];
-    [towns setObject:t forKey:newCode];
+    //[towns setObject:t forKey:newCode];
+    [towns addObject:t];
 }
 
 @end
@@ -121,7 +123,7 @@
     self = [super initLocationWithName:newName andCode:newCode andParent:newParent];
     if(self)
     {
-        regions = [[NSMutableDictionary alloc] init];
+        regions = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -138,7 +140,7 @@
 
 - (void) addRegion:(Region *)r
 {
-    [regions setObject:r forKey:r.codeName];
+    [regions addObject:r];
 }
 
 - (void) addRegion:(NSString *)newName andCode:(NSString *)newCode
@@ -149,7 +151,7 @@
 - (void) addRegion:(NSString *)newName andCode:(NSString *)newCode andParent:(NSString*) newParent
 {
     Region *r = [[Region alloc] initRegionWithName:newName andCode:newCode andParent:newParent];
-    [regions setObject:r forKey:newCode];
+    [regions addObject:r];
 }
 
 @end
@@ -167,7 +169,7 @@
     self = [super initLocationWithName:newName andCode:newCode andParent:newParent];
     if(self)
     {
-        metros = [[NSMutableDictionary alloc] init];
+        metros = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -184,7 +186,7 @@
 
 - (void) addMetro:(Metro *)m
 {
-    [metros setObject:m forKey:m.codeName];
+    [metros addObject:m];
     
 }
 
@@ -196,7 +198,7 @@
 - (void) addMetro:(NSString *)newName andCode:(NSString *)newCode andParent:(NSString*) newParent
 {
     Metro *m = [[Metro alloc] initMetroWithName:newName andCode:newCode andParent:newParent];
-    [metros setObject:m forKey:newCode];
+    [metros addObject:m];
 }
 
 @end

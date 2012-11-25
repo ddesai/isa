@@ -125,9 +125,6 @@ DataModel *dataModel;
     SearchDetailViewController *ivc = [[SearchDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
     ivc.searchDelegate = self;
     
-    //ivc.title = [[data getSectionAtIndex:[indexPath row]]];
-    //ivc.items = [[library getCategoryAtIndex:[indexPath row]] getMembers];
-    //[self pushViewController:ivc animated:YES];
     [self.navigationController pushViewController:ivc animated:YES];
 }
 

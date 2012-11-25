@@ -27,7 +27,7 @@
 
 @property (strong, atomic) NSString *name;
 @property (strong, atomic) NSString *codeName;
-@property (strong, atomic) NSMutableDictionary *subcats;
+@property (strong, atomic) NSMutableArray *subcats;
 
 - (void) addSubCat:(NSString*)newName andCode:(NSString*)newCode;
 - (id) initCategoryWithName:(NSString*)newName andCode:(NSString*)newCode;
