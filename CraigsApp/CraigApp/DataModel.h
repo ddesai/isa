@@ -7,16 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Categories.h"
+#import "Locations.h"
+
+typedef enum
+{
+  SECTION_INIT=-1,
+  SECTION_CATEGORY,
+  SECTION_LOCATION,
+  SECTION_INVALID
+} SectionTypeEnum;
 
 @interface DataModel : NSObject
 {
-    int currentSection;
+    SectionTypeEnum currentSection;
+    Location *currentLocation;
+    SubCategory *currentCategory;
 }
 
-@property (atomic) int currentSection;
+@property (atomic) SectionTypeEnum currentSection;
+@property (atomic) Location *currentLocation;
+@property (atomic) SubCategory *currentCategory;
+@property (strong, atomic) NSMutableArray *categories;
+@property (strong, atomic) NSMutableArray *locations;
 @property (strong, atomic) NSMutableArray *sections;
 @property (strong, atomic) NSMutableArray *regions;
-@property (strong, atomic) NSMutableArray *categories;
 @property (strong, atomic) NSMutableArray *neighborhoods;
 @property (strong, atomic) NSMutableArray *towns;
 @property (strong, atomic) NSString *test;
@@ -27,15 +42,23 @@
 - (NSString *)getSectionAtIndex: (NSUInteger) index;
 - (NSUInteger)numberOfSections;
 
+// ******** Craigslist Categories
+- (void)addCategory: (NSString *) newMember;
+- (SubCategory *)getCategoryAtIndex: (NSUInteger) index;
+- (NSString *)getCategoryNameAtIndex: (NSUInteger) index;
+- (NSString *)getCategoryCodeAtIndex: (NSUInteger) index;
+- (NSUInteger)numberOfCategories;
+
+// ******** Craigslist Locations
+- (Location *)getLocationAtIndex: (NSUInteger) index;
+- (NSString *)getLocationNameAtIndex: (NSUInteger) index;
+- (NSString *)getLocationCodeAtIndex: (NSUInteger) index;
+- (NSUInteger)numberOfLocations;
+
 // ******** Craigslist Regions
 - (void)addRegion: (NSString *) newMember;
 - (NSString *)getRegionAtIndex: (NSUInteger) index;
 - (NSUInteger)numberOfRegions;
-
-// ******** Craigslist Categories
-- (void)addCategory: (NSString *) newMember;
-- (NSString *)getCategoryAtIndex: (NSUInteger) index;
-- (NSUInteger)numberOfCategories;
 
 // ******** Neighborhoods
 - (void)addNeighborhood:(NSString *) newMember;

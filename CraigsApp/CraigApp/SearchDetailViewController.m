@@ -26,9 +26,6 @@ DataModel *data;
 {
     self = [super initWithStyle:style];
     if (self) {
-        CraigAppAppDelegate* appDelegate;
-        appDelegate = (CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate];
-        data = [appDelegate data];
     }
     return self;
 }
@@ -48,19 +45,23 @@ DataModel *data;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if(!data) {
+        CraigAppAppDelegate* appDelegate;
+        appDelegate = (CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate];
+        data = [appDelegate data];
+    }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //Returns the # of rows based on what type it is of
-    // This will later change to use the objects from Data Model
     switch ([data currentSection])
     {
-        case 1: return [data numberOfRegions];
-        case 0: return [data numberOfCategories];
-        case 2: return [data numberOfNeighborhoods];
-        case 3: return [data numberOfTowns];
+        case SECTION_CATEGORY: return [data numberOfCategories];
+        case SECTION_LOCATION: return [data numberOfLocations];
+        //case 3: return [data numberOfNeighborhoods];
+        //case 4: return [data numberOfTowns];
         default: return 1;
     }
 }
@@ -80,10 +81,19 @@ DataModel *data;
     // Depending on what the user selected from the ISAMainView, it renders the DetailView
     switch ([data currentSection])
     {
-        case 1: cell.textLabel.text = [data getRegionAtIndex:[indexPath row]]; break;
-        case 0: cell.textLabel.text = [data getCategoryAtIndex:[indexPath row]]; break;
-        case 2: cell.textLabel.text = [data getNeighborhoodAtIndex:[indexPath row]]; break;
-        case 3: cell.textLabel.text = [data getTownAtIndex:[indexPath row]]; break;
+        // Categories
+        case SECTION_CATEGORY:
+            //cell.textLabel.text = [data getCategoryAtIndex:[indexPath row]];
+            cell.textLabel.text = [data getCategoryNameAtIndex:[indexPath row]];
+            break;
+        
+        // Locations
+        case SECTION_LOCATION:
+            //cell.textLabel.text = [data getRegionAtIndex:[indexPath row]];
+            cell.textLabel.text = [data getLocationNameAtIndex:[indexPath row]];
+            break;
+        //case 2: cell.textLabel.text = [data getNeighborhoodAtIndex:[indexPath row]]; break;
+        //case 3: cell.textLabel.text = [data getTownAtIndex:[indexPath row]]; break;
         default: cell.textLabel.text = @"Error";
     }
     
@@ -99,10 +109,19 @@ DataModel *data;
     NSString *selectedText = @" ";
     switch ([data currentSection])
     {
-        case 1: selectedText = [data getRegionAtIndex:[indexPath row]]; break;
-        case 0: selectedText = [data getCategoryAtIndex:[indexPath row]]; break;
-        case 2: selectedText = [data getNeighborhoodAtIndex:[indexPath row]]; break;
-        case 3: selectedText = [data getTownAtIndex:[indexPath row]]; break;
+        // Categories
+        case SECTION_CATEGORY:
+            [data setCurrentCategory:[data getCategoryAtIndex:[indexPath row]]];
+            selectedText = [[data currentCategory] name];
+            break;
+        
+        // Locations
+        case SECTION_LOCATION:
+            [data setCurrentLocation:[data getLocationAtIndex:[indexPath row]]];
+            selectedText = [[data currentLocation] name];
+            break;
+        //case 2: selectedText = [data getNeighborhoodAtIndex:[indexPath row]]; break;
+        //case 3: selectedText = [data getTownAtIndex:[indexPath row]]; break;
         default: selectedText = @"Error";
     }
     data.test = selectedText;

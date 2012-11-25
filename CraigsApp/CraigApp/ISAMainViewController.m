@@ -18,7 +18,7 @@
 
 @implementation ISAMainViewController
 
-CraigAppAppDelegate* appDelegate;
+DataModel *dataModel;
 
 @synthesize myTableView;
 
@@ -40,13 +40,11 @@ CraigAppAppDelegate* appDelegate;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -54,6 +52,9 @@ CraigAppAppDelegate* appDelegate;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // Get a pointer to the data Model
+    CraigAppAppDelegate* appDelegate = (CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate];
+    dataModel = [appDelegate data];
     // Return the number of sections.
     return 1;
 }
@@ -61,22 +62,38 @@ CraigAppAppDelegate* appDelegate;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    appDelegate = (CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    //return [[appDelegate data] numberOfSections];
     return 2;
-    
 }
+
+- (NSString*) parseSelection:(int) row
+{
+    NSString *selectedText = @" ";
+    
+    switch (row)
+    {
+        // Categories
+        case SECTION_CATEGORY:
+            selectedText = [[dataModel currentCategory] name];
+            break;
+            
+        // Locations
+        case SECTION_LOCATION:
+            selectedText = [[dataModel currentLocation] name];
+            break;
+            
+        default:
+            selectedText = @" ";
+            break;
+    }
+    return selectedText;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-#import "DataModel.h"
-    DataModel *dataModel;
-    dataModel = [appDelegate data];
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
 
     // Configure the cell...
     if (cell == nil) {
@@ -86,21 +103,14 @@ CraigAppAppDelegate* appDelegate;
     
     // For the first time, it initializes it to these values
     // Later, after I change the data model to use object, this code will change
-    if([dataModel currentSection] == -1) {
+    if([dataModel currentSection] == SECTION_INIT) {
         cell.textLabel.text = [dataModel getSectionAtIndex:[indexPath row]];
-        NSString *selectedText = @" ";
-        switch ([indexPath row])
-        {
-            case 1: selectedText = @"SF Bay Area"; break;
-            case 0: selectedText = @"Apt Rental"; break;
-            default: selectedText = @" ";
-        }
-        cell.detailTextLabel.text = selectedText;
+        cell.detailTextLabel.text = [self parseSelection:[indexPath row]];
     }
     // Makes sure that we only update the changed item
     else {
         if([dataModel currentSection] == [indexPath row])
-            cell.detailTextLabel.text = [dataModel test];
+            cell.detailTextLabel.text = [self parseSelection:[indexPath row]];
     }
     return cell;
 }
@@ -110,10 +120,7 @@ CraigAppAppDelegate* appDelegate;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DataModel *data;
-    appDelegate = (CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate];
-    data = [appDelegate data];
-    [data setCurrentSection:[indexPath row]];
+    [dataModel setCurrentSection:[indexPath row]];
     
     SearchDetailViewController *ivc = [[SearchDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
     ivc.searchDelegate = self;

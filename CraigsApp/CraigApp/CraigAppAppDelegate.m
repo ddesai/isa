@@ -55,11 +55,11 @@
     [data addRegion:@"ventura"];
     [data addRegion:@"visalia-tulare"];
     [data addRegion:@"yuba-sutter"];
-
+/*
     [data addCategory:@"Apt Rental"];
     [data addCategory:@"Apt for Sale"];
     [data addCategory:@"Books for Sale"];
-
+*/
     [data addNeighborhood:@"all SF bay area"];
     [data addNeighborhood:@"San Francisco"];
     [data addNeighborhood:@"South Bay"];
@@ -72,7 +72,6 @@
     [data addTown:@"Hayward"];
     [data addTown:@"San Jose"];
     
-    data.currentSection = -1;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
