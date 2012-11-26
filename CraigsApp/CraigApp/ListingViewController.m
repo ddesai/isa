@@ -74,6 +74,8 @@ NSMutableArray *listingsUrl;
     
     [self parseDocumentWithNSData:dataModel.listingResults];
     
+    // ParsedListings *parsedObj = [[ParsedListings alloc]initWithArray:listingsUrl];
+    
     return listingsUrl.count;
 }
 
@@ -102,6 +104,8 @@ NSMutableArray *listingsUrl;
     //cell.textLabel.text = [object description];
     return cell;
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.

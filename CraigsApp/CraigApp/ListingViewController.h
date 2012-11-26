@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ResultData.h"
 #import "TableCell.h"
+#import "ParsedListings.h"
 
 @interface ListingViewController : UITableViewController <NSXMLParserDelegate>
 

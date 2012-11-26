@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ParsedListings : NSObject
+@interface ParsedListings : NSObject <NSXMLParserDelegate>
+{
+    BOOL storingCharacterData;
+    NSMutableDictionary *workingEntry;
+    NSMutableString *entryString;
+}
+
+@property NSMutableArray *listings;
+@property NSArray *urlsToParse;
+
+-(BOOL)parseDocumentWithURL:(NSURL *)theListing;
+- (id)initWithArray:(NSArray *)urlListings;
 
 @end

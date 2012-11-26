@@ -28,6 +28,7 @@
 		9510E97E164CA1C300FDF50E /* ResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97D164CA1C300FDF50E /* ResultData.m */; };
 		9510E99B164DD9CA00FDF50E /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9510E999164DD9CA00FDF50E /* checked.png */; };
 		9510E99C164DD9CA00FDF50E /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9510E99A164DD9CA00FDF50E /* unchecked.png */; };
+		95F760E41662D74C00A640CB /* ParsedListings.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F760E31662D74C00A640CB /* ParsedListings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,8 @@
 		9510E97D164CA1C300FDF50E /* ResultData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultData.m; sourceTree = "<group>"; };
 		9510E999164DD9CA00FDF50E /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		9510E99A164DD9CA00FDF50E /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		95F760E21662D74C00A640CB /* ParsedListings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsedListings.h; sourceTree = "<group>"; };
+		95F760E31662D74C00A640CB /* ParsedListings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsedListings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				6A41BCB216408A0200946256 /* MapViewController.h */,
 				6A41BCAF164088F700946256 /* ListingViewController.h */,
 				6A41BCB0164088F700946256 /* ListingViewController.m */,
+				95F760E21662D74C00A640CB /* ParsedListings.h */,
+				95F760E31662D74C00A640CB /* ParsedListings.m */,
 				6A41BCAB1640889600946256 /* FavViewController.h */,
 				6A41BCAC1640889600946256 /* FavViewController.m */,
 				6A41BC99163F5E7400946256 /* SearchDetailViewController.h */,
@@ -246,6 +251,7 @@
 				9510E97E164CA1C300FDF50E /* ResultData.m in Sources */,
 				6A9E75AA165C48520014F8D3 /* Categories.m in Sources */,
 				6A9E75AE165DA2BB0014F8D3 /* Locations.m in Sources */,
+				95F760E41662D74C00A640CB /* ParsedListings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
