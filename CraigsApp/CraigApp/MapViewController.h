@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController{
-// add a view of web type for displaying map
-IBOutlet UIWebView *map;
+@interface MapViewController : UIViewController <MKMapViewDelegate>
+{
+
+    
 }
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 @end

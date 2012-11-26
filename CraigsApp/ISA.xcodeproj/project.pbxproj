@@ -16,6 +16,9 @@
 		6A41BCBA16435D5800946256 /* ISAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41BCB916435D5700946256 /* ISAMainViewController.m */; };
 		6A9E75AA165C48520014F8D3 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9E75A9165C48520014F8D3 /* Categories.m */; };
 		6A9E75AE165DA2BB0014F8D3 /* Locations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9E75AD165DA2BB0014F8D3 /* Locations.m */; };
+		6A9E75B4166307C70014F8D3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9E75B3166307C70014F8D3 /* MapKit.framework */; };
+		6A9E75BE16630EC70014F8D3 /* ISAMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9E75BD16630EC70014F8D3 /* ISAMapPoint.m */; };
+		6A9E75C0166350B70014F8D3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9E75BF166350B70014F8D3 /* CoreLocation.framework */; };
 		9502DF98163DDB3500FD680E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF97163DDB3500FD680E /* UIKit.framework */; };
 		9502DF9A163DDB3500FD680E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF99163DDB3500FD680E /* Foundation.framework */; };
 		9502DF9C163DDB3500FD680E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF9B163DDB3500FD680E /* CoreGraphics.framework */; };
@@ -51,6 +54,10 @@
 		6A9E75A9165C48520014F8D3 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		6A9E75AC165DA2BB0014F8D3 /* Locations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Locations.h; sourceTree = "<group>"; };
 		6A9E75AD165DA2BB0014F8D3 /* Locations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Locations.m; sourceTree = "<group>"; };
+		6A9E75B3166307C70014F8D3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6A9E75BC16630EC60014F8D3 /* ISAMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAMapPoint.h; sourceTree = "<group>"; };
+		6A9E75BD16630EC70014F8D3 /* ISAMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAMapPoint.m; sourceTree = "<group>"; };
+		6A9E75BF166350B70014F8D3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9502DF93163DDB3500FD680E /* ISA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9502DF97163DDB3500FD680E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9502DF99163DDB3500FD680E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9E75C0166350B70014F8D3 /* CoreLocation.framework in Frameworks */,
+				6A9E75B4166307C70014F8D3 /* MapKit.framework in Frameworks */,
 				9502DF98163DDB3500FD680E /* UIKit.framework in Frameworks */,
 				9502DF9A163DDB3500FD680E /* Foundation.framework in Frameworks */,
 				9502DF9C163DDB3500FD680E /* CoreGraphics.framework in Frameworks */,
@@ -90,6 +99,8 @@
 		9502DF88163DDB3500FD680E = {
 			isa = PBXGroup;
 			children = (
+				6A9E75BF166350B70014F8D3 /* CoreLocation.framework */,
+				6A9E75B3166307C70014F8D3 /* MapKit.framework */,
 				9510E976164C9D9F00FDF50E /* Default-568h@2x.png */,
 				9510E998164DD97800FDF50E /* Images */,
 				9502DF9D163DDB3500FD680E /* CraigApp */,
@@ -127,8 +138,10 @@
 				6A41BCB816435D5700946256 /* ISAMainViewController.h */,
 				6A41BCB916435D5700946256 /* ISAMainViewController.m */,
 				6A2438D31655846E00B51589 /* SearchSelectionDelegate.h */,
-				6A41BCB316408A0200946256 /* MapViewController.m */,
+				6A9E75BC16630EC60014F8D3 /* ISAMapPoint.h */,
+				6A9E75BD16630EC70014F8D3 /* ISAMapPoint.m */,
 				6A41BCB216408A0200946256 /* MapViewController.h */,
+				6A41BCB316408A0200946256 /* MapViewController.m */,
 				6A41BCAF164088F700946256 /* ListingViewController.h */,
 				6A41BCB0164088F700946256 /* ListingViewController.m */,
 				95F760E21662D74C00A640CB /* ParsedListings.h */,
@@ -252,6 +265,7 @@
 				6A9E75AA165C48520014F8D3 /* Categories.m in Sources */,
 				6A9E75AE165DA2BB0014F8D3 /* Locations.m in Sources */,
 				95F760E41662D74C00A640CB /* ParsedListings.m in Sources */,
+				6A9E75BE16630EC70014F8D3 /* ISAMapPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

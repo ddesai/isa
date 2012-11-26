@@ -208,7 +208,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <segue destination="W4L-53-SFA" kind="push" id="3rI-xy-gaV"/>
+                                <segue destination="ZKU-vn-pL3" kind="push" id="3vn-mv-Ofm"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -336,36 +336,28 @@
             <point key="canvasLocation" x="1417" y="69"/>
         </scene>
         <!--Map View Controller-->
-        <scene sceneID="Bhq-kb-k0a">
+        <scene sceneID="l9f-xk-OJH">
             <objects>
-                <viewController id="W4L-53-SFA" customClass="MapViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Jfs-l0-CQ5">
+                <viewController id="ZKU-vn-pL3" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xm7-71-xKH">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Map will be displayed here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aNc-b5-mIt">
-                                <rect key="frame" x="65" y="176" width="201" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <webView contentMode="scaleToFill" id="pOP-oO-aor">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="CHH-ap-awO">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </webView>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="a0M-AV-lcU"/>
+                    <navigationItem key="navigationItem" id="Ief-iv-9uC"/>
                     <connections>
-                        <outlet property="map" destination="pOP-oO-aor" id="Zt3-WO-bC2"/>
+                        <outlet property="mapView" destination="CHH-ap-awO" id="F7Y-v5-5JC"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rdQ-uS-Orr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Av-7z-wNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="69"/>
+            <point key="canvasLocation" x="1835" y="69"/>
         </scene>
         <!--Main View Controller - Intelligent Search Assistant-->
         <scene sceneID="PjR-YA-obg">
