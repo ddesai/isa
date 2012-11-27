@@ -8,11 +8,11 @@
 
 @implementation TableCell
 
-@synthesize titleLabel, locationLabel, priceLabel, bedLabel, bathLabel, dateLabel;
+@synthesize titleLabel, label1, label2;
 
-@synthesize favChecked, mapChecked;
+@synthesize favChecked;
 
-@synthesize addToFavButton, addToMapButton;
+@synthesize addToFavButton;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -23,6 +23,8 @@
     }
     return self;
 }
+
+
 
 
 
@@ -43,12 +45,6 @@
 }
 
 
-- (IBAction) checkMap: (id) sender;
-{
-    self.mapChecked = !self.mapChecked; // toggles
-	UIImage *mapCheckedImage = (self.mapChecked) ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
-	[addToMapButton setImage:mapCheckedImage forState:UIControlStateNormal];
-}
 
 
 
