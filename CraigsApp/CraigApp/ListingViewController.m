@@ -95,6 +95,7 @@ NSMutableArray *listingsUrl;
     // hook up iboutlets from cells to (dummy) data
     
     cell.titleLabel.text = title;
+    
     /*cell.locationLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"location"]];
     cell.priceLabel.text = [NSString stringWithFormat:@"$%@", [dic objectForKey:@"price"]];
     cell.bedLabel.text = [NSString stringWithFormat:@"beds: %@", [dic objectForKey:@"bed"]];
@@ -152,13 +153,11 @@ NSMutableArray *listingsUrl;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    DetailViewController *dvc = [[DetailViewController alloc] initWithString:[listingsUrl objectAtIndex:indexPath.row]];
+    
+    [[self navigationController] pushViewController:dvc animated:YES];
+    
 }
 
 
