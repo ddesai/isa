@@ -20,8 +20,6 @@
     {
         self.listingUrl = urlString;
 
-
-
     }
     return self;
 }
@@ -43,33 +41,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //NSURL *url = [NSURL URLWithString:self.listingUrl];
 
-    //NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-
-    //self.detailListing = [[UIWebView alloc] init];
-    //[detailListing loadRequest:request];
-    
-    //self.detailListing = detailListing;
-   /* self.detailListing = [[UIWebView alloc]init];
-    NSURL *url = [NSURL URLWithString:self.listingUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-
-    [self.navigationController pushViewController:self.view animated:YES];
-
-    [self.view addSubview:self.detailListing];
-    [self.detailListing loadRequest:request];
-    */
-    
-    //    UIWebView *detailListing = [[UIWebView alloc]init];
     NSURL *url = [NSURL URLWithString:self.listingUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
-    //    [dvc.view addSubview:detailListing];
     [self.detailListing loadRequest:request];
 
-    //[[UIApplication sharedApplication] openURL:url];
-    
 }
 
 - (void)didReceiveMemoryWarning

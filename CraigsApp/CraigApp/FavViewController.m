@@ -6,13 +6,19 @@
 //
 //
 
+#import "CraigAppAppDelegate.h"
 #import "FavViewController.h"
 
 @interface FavViewController ()
 
 @end
 
+
+
 @implementation FavViewController
+{
+   DataModel *dataModel;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,7 +37,10 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,21 +54,27 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
+    
+    return dataModel.favorites.count;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    static NSString *CellIdentifier = @"FAVCELL";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    NSString *favTitle  = [dataModel.favorites objectAtIndex:indexPath.row];
+    cell.textLabel.text = favTitle;
     
     return cell;
 }
@@ -115,5 +130,15 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
+/* This should go in the collection view (nav controller of this table)
+-(void)viewWillAppear:(BOOL)animated
+{
+	// force the tableview to load
+    
+	[theTableView reloadData];
+}*/
+
 
 @end

@@ -39,8 +39,7 @@ NSMutableArray *listingsUrl;
 - (void)viewDidLoad
 {
     
-    //GET DARA OUT OF NSDATA THEN PARSE
-    // how to get data from appdelegate?
+
     
     [super viewDidLoad];
 
@@ -74,15 +73,12 @@ NSMutableArray *listingsUrl;
     
     [self parseDocumentWithNSData:dataModel.listingResults];
     
-    // ParsedListings *parsedObj = [[ParsedListings alloc]initWithArray:listingsUrl];
     
     return listingsUrl.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
 
     
     //NSDictionary *dic = [listingsUrl objectAtIndex:indexPath.row];
@@ -96,13 +92,6 @@ NSMutableArray *listingsUrl;
     
     cell.titleLabel.text = title;
     
-    /*cell.locationLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"location"]];
-    cell.priceLabel.text = [NSString stringWithFormat:@"$%@", [dic objectForKey:@"price"]];
-    cell.bedLabel.text = [NSString stringWithFormat:@"beds: %@", [dic objectForKey:@"bed"]];
-    cell.bathLabel.text = [NSString stringWithFormat:@"baths: %@", [dic objectForKey:@"bath"]];
-    cell.dateLabel.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"date"]];*/
-    //NSDate *object = _objects[indexPath.row];
-    //cell.textLabel.text = [object description];
     return cell;
 }
 
@@ -153,23 +142,33 @@ NSMutableArray *listingsUrl;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    TableCell *cell = (TableCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell checkFav:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    BOOL favChecked = cell.favChecked;
+    if(favChecked){
+
+        [dataModel addToFavorites:[listingsUrl objectAtIndex:indexPath.row]];
+    }
+}
+
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     UIStoryboard *storyboard = self.storyboard;
     
     DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
     dvc.listingUrl = [listingsUrl objectAtIndex:indexPath.row];
-/*
-//    UIWebView *detailListing = [[UIWebView alloc]init];
-    NSURL *url = [NSURL URLWithString:[listingsUrl objectAtIndex:indexPath.row]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-
-//    [dvc.view addSubview:detailListing];
-    [dvc.detailListing loadRequest:request];
-*/
-    [self.navigationController pushViewController:dvc animated:YES];
     
-    //[[self navigationController] pushViewController:dvc animated:YES];
+    [self.navigationController pushViewController:dvc animated:YES];
 }
+
+
+
+
+
 
 
 -(BOOL)parseDocumentWithNSData:(NSData *)data{

@@ -9,12 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController
-{
-    UIWebView *detailListing;
-
-}
-
-
 
 @property IBOutlet UIWebView *detailListing;
 @property (nonatomic, weak) NSString *listingUrl;

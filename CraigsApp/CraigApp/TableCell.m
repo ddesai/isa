@@ -42,6 +42,7 @@
 	self.favChecked= !self.favChecked; // toggles
 	UIImage *favCheckedImage = (self.favChecked) ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
 	[addToFavButton setImage:favCheckedImage forState:UIControlStateNormal];
+
 }
 
 
