@@ -10,13 +10,13 @@
 
 @interface DetailViewController : UIViewController
 {
-    IBOutlet UIWebView *detailListing;
+    UIWebView *detailListing;
 
 }
 
 
 
-
+@property IBOutlet UIWebView *detailListing;
 @property (nonatomic, weak) NSString *listingUrl;
 
 - (id)initWithString:(NSString *)urlString;

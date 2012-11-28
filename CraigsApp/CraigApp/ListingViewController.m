@@ -154,10 +154,21 @@ NSMutableArray *listingsUrl;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    DetailViewController *dvc = [[DetailViewController alloc] initWithString:[listingsUrl objectAtIndex:indexPath.row]];
+    UIStoryboard *storyboard = self.storyboard;
     
-    [[self navigationController] pushViewController:dvc animated:YES];
+    DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    dvc.listingUrl = [listingsUrl objectAtIndex:indexPath.row];
+/*
+//    UIWebView *detailListing = [[UIWebView alloc]init];
+    NSURL *url = [NSURL URLWithString:[listingsUrl objectAtIndex:indexPath.row]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+
+//    [dvc.view addSubview:detailListing];
+    [dvc.detailListing loadRequest:request];
+*/
+    [self.navigationController pushViewController:dvc animated:YES];
     
+    //[[self navigationController] pushViewController:dvc animated:YES];
 }
 
 
