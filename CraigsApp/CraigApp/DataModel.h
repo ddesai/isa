@@ -37,6 +37,7 @@ typedef enum
 @property (strong, atomic) NSMutableArray *towns;
 @property (strong, atomic) NSString *test;
 @property (strong, atomic) NSData* listingResults;
+@property (strong, atomic) NSMutableArray *favorites;
 
 // ******** Craigslist Sections
 - (void)addSection:(NSString *) newMember;
@@ -70,5 +71,8 @@ typedef enum
 - (void)addTown:(NSString *) newMember;
 - (NSString *)getTownAtIndex: (NSUInteger) index;
 - (NSUInteger)numberOfTowns;
+
+// ********** Add favofites
+-(void)addToFavorites:(id) newMember;
 
 @end

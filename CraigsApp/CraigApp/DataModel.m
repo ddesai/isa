@@ -12,6 +12,7 @@
 
 @synthesize categories, locations, regions, neighborhoods, towns, sections, test, listingResults;
 @synthesize currentCategory, currentLocation, currentSection;
+@synthesize favorites;
 
 - (id)init
 {
@@ -283,6 +284,14 @@
     // Adds more subcategories in categories Array
     [categories addObjectsFromArray:[c subcats]];
 
+}
+
+-(void)addToFavorites:(id) newMember{
+    if(!self.favorites){
+        self.favorites =  [[NSMutableArray alloc]init];
+    }
+    
+    [self.favorites addObject:newMember];
 }
 
 @end
