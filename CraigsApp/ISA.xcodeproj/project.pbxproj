@@ -122,6 +122,7 @@
 			children = (
 				95D48E5316688DFA0009BF04 /* Resources */,
 				6A9E75CF166855B70014F8D3 /* libxml2.2.dylib */,
+				95D48E5316688DFA0009BF04 /* Resources */,
 				6A9E75BF166350B70014F8D3 /* CoreLocation.framework */,
 				6A9E75B3166307C70014F8D3 /* MapKit.framework */,
 				9510E976164C9D9F00FDF50E /* Default-568h@2x.png */,
