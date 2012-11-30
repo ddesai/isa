@@ -143,16 +143,26 @@ NSMutableArray *listingsUrl;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    TableCell *cell = (TableCell *)[tableView cellForRowAtIndexPath:indexPath];
+    /*TableCell *cell = (TableCell *)[tableView cellForRowAtIndexPath:indexPath];
     [cell checkFav:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     BOOL favChecked = cell.favChecked;
     if(favChecked){
 
         [dataModel addToFavorites:[listingsUrl objectAtIndex:indexPath.row]];
-    }
+    }*/
 }
 
+-(void) addDataToFavorites:(int)row
+{
+    [dataModel addToFavorites:[listingsUrl objectAtIndex:row]];
+}
+
+
+-(void)removeDataFromFavorites
+{
+    [dataModel removeFromFavorites];
+}
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {

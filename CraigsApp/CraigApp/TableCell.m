@@ -5,6 +5,7 @@
 //
 
 #import "TableCell.h"
+#import "ListingViewController.h"
 
 @implementation TableCell
 
@@ -39,9 +40,18 @@
 
 - (IBAction) checkFav:(id)sender
 {
-	self.favChecked= !self.favChecked; // toggles
+	self.favChecked = !self.favChecked; // toggles
 	UIImage *favCheckedImage = (self.favChecked) ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
 	[addToFavButton setImage:favCheckedImage forState:UIControlStateNormal];
+    UITableView * tv = (UITableView *)[self superview];
+    int row = [tv indexPathForCell:self].row;
+    
+    ListingViewController  *lvc = (ListingViewController *)[tv dataSource];
+    if(self.favChecked)
+        [lvc addDataToFavorites:row];
+    else
+        [lvc removeDataFromFavorites];
+
 
 }
 

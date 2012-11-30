@@ -15,5 +15,7 @@
 @interface ListingViewController : UITableViewController <NSXMLParserDelegate>
 
 -(BOOL)parseDocumentWithNSData:(NSData *)data;
+-(void) addDataToFavorites:(int)row;
+-(void)removeDataFromFavorites;
 
 @end

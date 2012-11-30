@@ -74,5 +74,6 @@ typedef enum
 
 // ********** Add favofites
 -(void)addToFavorites:(id) newMember;
+-(void)removeFromFavorites;
 
 @end

@@ -294,4 +294,10 @@
     [self.favorites addObject:newMember];
 }
 
+-(void)removeFromFavorites{
+    if(self.favorites){
+        [self.favorites removeLastObject];
+    }
+}
+
 @end
