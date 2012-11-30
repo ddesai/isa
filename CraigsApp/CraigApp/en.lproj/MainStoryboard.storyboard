@@ -16,19 +16,52 @@
                     </tabBar>
                     <connections>
                         <segue destination="Jfc-dq-Q2C" kind="relationship" relationship="viewControllers" id="6ZS-mL-irB"/>
-                        <segue destination="H4v-bX-j7b" kind="relationship" relationship="viewControllers" id="Wg0-wV-bxm"/>
+                        <segue destination="zeO-Mu-oIV" kind="relationship" relationship="viewControllers" id="Zzo-Vf-YON"/>
+                        <segue destination="YiG-mP-viJ" kind="relationship" relationship="viewControllers" id="20k-Uh-acl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-622" y="-152"/>
+            <point key="canvasLocation" x="-964" y="-274"/>
+        </scene>
+        <!--Navigation Controller - MapNavController-->
+        <scene sceneID="dIj-Rz-Rio">
+            <objects>
+                <navigationController title="MapNavController" definesPresentationContext="YES" id="YiG-mP-viJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Maps" image="location.png" id="1fl-wi-9In"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nXr-hf-q9d">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZKU-vn-pL3" kind="relationship" relationship="rootViewController" id="f4b-7v-ZsH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8H-LX-mFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-805" y="548"/>
+        </scene>
+        <!--Navigation Controller - FavNavController-->
+        <scene sceneID="0Hu-M3-zoC">
+            <objects>
+                <navigationController title="FavNavController" definesPresentationContext="YES" id="zeO-Mu-oIV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star.png" id="WuE-xv-Me7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vX6-8K-4jx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="H4v-bX-j7b" kind="relationship" relationship="rootViewController" id="a09-Dk-Cpy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hN3-V8-kyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-505" y="-835"/>
         </scene>
         <!--Fav View Controller - Favorites-->
         <scene sceneID="9rC-nM-Mwv">
             <objects>
                 <tableViewController title="Favorites" id="H4v-bX-j7b" customClass="FavViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1GF-35-IgT">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -56,7 +89,10 @@
                             <outlet property="delegate" destination="H4v-bX-j7b" id="iKl-Eg-dWF"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Favorites" id="NX0-5x-LtY"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorite-icon.png" id="NX0-5x-LtY"/>
+                    <navigationItem key="navigationItem" id="dtK-Fh-5zb"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2e-1D-bxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +103,7 @@
             <objects>
                 <viewController id="ZMg-6s-HWz" customClass="MainSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Rd-a4-leN" customClass="UIControl">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Keyword" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nEg-sT-bzh">
@@ -221,31 +257,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6BC-zh-tEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1566" y="-490"/>
+            <point key="canvasLocation" x="1054" y="-603"/>
         </scene>
         <!--Listing View Controller - Listing View-->
         <scene sceneID="6KG-WS-9af">
             <objects>
                 <tableViewController title="Listing View" id="wUf-8w-q02" customClass="ListingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" id="Js8-0r-aJt">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lKM-3Q-dMI">
-                            <rect key="frame" x="0.0" y="87" width="320" height="131"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Map">
-                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <segue destination="ZKU-vn-pL3" kind="push" id="3vn-mv-Ofm"/>
-                            </connections>
-                        </button>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyIdentifier" rowHeight="65" id="sVr-iJ-xFO" customClass="TableCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="65"/>
@@ -301,18 +322,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPd-Fy-sXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1502" y="69"/>
+            <point key="canvasLocation" x="1328" y="73"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="l9f-xk-OJH">
             <objects>
                 <viewController id="ZKU-vn-pL3" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xm7-71-xKH">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="CHH-ap-awO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
@@ -325,14 +346,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Av-7z-wNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="69"/>
+            <point key="canvasLocation" x="-254" y="738"/>
         </scene>
         <!--Main View Controller - Intelligent Search Assistant-->
         <scene sceneID="PjR-YA-obg">
             <objects>
                 <viewController id="XwG-3w-Rzk" customClass="ISAMainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZLu-pO-E11">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Search Criteria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UdU-va-MYV">
@@ -358,7 +379,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="nSR-Pu-1on">
-                                <rect key="frame" x="31" y="89" width="258" height="200"/>
+                                <rect key="frame" x="31" y="89" width="258" height="151"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -385,8 +406,8 @@
         <scene sceneID="OXv-Ga-yfq">
             <objects>
                 <navigationController title="Intelligent Search Assistant" definesPresentationContext="YES" id="Jfc-dq-Q2C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" id="GEA-TU-c0A"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="gear.png" id="GEA-TU-c0A"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gdX-AH-mNd">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -435,8 +456,66 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Favorite-icon.png" width="16" height="16"/>
+        <image name="gear.png" width="26" height="26"/>
+        <image name="location.png" width="20" height="20"/>
+        <image name="star.png" width="26" height="26"/>
         <image name="unchecked.png" width="22" height="22"/>
     </resources>
+    <classes>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailListing" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="FavViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavViewController.h"/>
+        </class>
+        <class className="ISAMainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ISAMainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ListingViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingViewController.h"/>
+        </class>
+        <class className="MainSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainSearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="dismissKeyboardOutside:"/>
+                <relationship kind="action" name="searchCL:"/>
+                <relationship kind="outlet" name="appTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bedMin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="bedTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hasImage" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="keyword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceMax" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceMin" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="SearchDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchDetailViewController.h"/>
+        </class>
+        <class className="TableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableCell.h"/>
+            <relationships>
+                <relationship kind="action" name="checkFav:"/>
+                <relationship kind="outlet" name="addToFavButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="label1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

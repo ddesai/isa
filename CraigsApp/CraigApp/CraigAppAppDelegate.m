@@ -7,6 +7,7 @@
 //
 
 #import "CraigAppAppDelegate.h"
+#import "FavViewController.h"
 
 @implementation CraigAppAppDelegate
 
@@ -22,7 +23,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     [self initializeData];
+    self.startTabBarController = (UITabBarController *)self.window.rootViewController;
+    [self.startTabBarController setDelegate:self];
    [window addSubview:startTabBarController.view];
    [window makeKeyAndVisible];
 
@@ -68,4 +72,12 @@
     */
 }
 
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if ([viewController.title isEqualToString:@"FavNavController"])
+    {
+        FavViewController *fvc = ((UINavigationController *)viewController).topViewController;
+        [fvc.tableView reloadData];
+    }
+}
 @end

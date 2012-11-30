@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
 
-@interface CraigAppAppDelegate : UIResponder <UIApplicationDelegate>
+@interface CraigAppAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UINavigationControllerDelegate>
 {
 }
 
