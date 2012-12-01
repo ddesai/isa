@@ -10,13 +10,10 @@
 #import "CraigAppAppDelegate.h"
 #import "GDataXMLNode.h"
 
-@interface ListingViewController ()
-
-@end
+DataModel *dataModel;
 
 @implementation ListingViewController
 {
-DataModel *dataModel;
 NSMutableArray *listingsUrl;
 }
 
@@ -67,31 +64,21 @@ NSMutableArray *listingsUrl;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    
     //Get the data model instance from AppDelegate
     dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
-    
     [self parseDocumentWithNSData:dataModel.listingResults];
-    
     
     return listingsUrl.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    
-    //NSDictionary *dic = [listingsUrl objectAtIndex:indexPath.row];
-    NSString *title = [listingsUrl objectAtIndex:indexPath.row];
-    
+    Listing *l = [dataModel getListingAtIndex:indexPath.row];
     
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
     
-    
     // hook up iboutlets from cells to (dummy) data
-    
-    cell.titleLabel.text = title;
+    cell.titleLabel.text = l.title;
     
     return cell;
 }
@@ -171,8 +158,8 @@ NSMutableArray *listingsUrl;
     UIStoryboard *storyboard = self.storyboard;
     
     DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
-    dvc.listingUrl = [listingsUrl objectAtIndex:indexPath.row];
-    
+    //dvc.listingUrl = [listingsUrl objectAtIndex:indexPath.row];
+    dvc.listingUrl = [dataModel getListingUrlAtIndex:indexPath.row];
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
@@ -182,53 +169,61 @@ NSMutableArray *listingsUrl;
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:data
                                                            options:0 error:&error];
     if (doc != nil)
-        [self getPostings:doc];
+        [self parseSearchResults:doc];
     else
         NSLog(@"ERROR --  Could not parse the Craigslist Results");
 }
 
--(void) getPostings:(GDataXMLDocument*) doc {
+-(void) parseSearchResults:(GDataXMLDocument*) doc {
     NSString *PRICE_REGX = @" \\$[0-9]+";
     NSString *BED_REGX = @" [0-9]bd";
     NSString *TOWN_REGX = @" \\((.*)\\) \\$";
     NSRange match;
-
-    NSArray *rdfs = [doc.rootElement elementsForName:@"item"];
-    for (GDataXMLElement *rdf in rdfs) {
-
+    NSString *mTitle, *mUrl, *mPrice, *mTown, *mBed;
+    
+    NSArray *items = [doc.rootElement elementsForName:@"item"];
+    for (GDataXMLElement *item in items) {
         // Title
-        NSArray *titles = [rdf elementsForName:@"dc:title"];
+        NSArray *titles = [item elementsForName:@"dc:title"];
         if (titles.count > 0) {
             GDataXMLElement *titleElement = (GDataXMLElement *) [titles objectAtIndex:0];
             NSString *title = titleElement.stringValue;
             NSLog(@"Title: %@", title);
+            mTitle = title;
 
             // Gets the price
             match = [title rangeOfString: PRICE_REGX options:NSRegularExpressionSearch];
             if(!(match.location == NSNotFound)) {
-                NSLog (@"Price: ==%@==", [title substringWithRange: NSMakeRange (match.location+1, match.length-1)]);
+                mPrice = [title substringWithRange: NSMakeRange (match.location+1, match.length-1)];
+                NSLog (@"Price: ==%@==", mTitle);
             }
             
             // Gets the #of Beds
             match = [title rangeOfString: BED_REGX options:NSRegularExpressionSearch];
             if(!(match.location == NSNotFound)) {
-                NSLog (@"Beds: ==%@==", [title substringWithRange: NSMakeRange (match.location+1, match.length-1)]);
+                mBed = [title substringWithRange: NSMakeRange (match.location+1, match.length-1)];
+                NSLog (@"Beds: ==%@==", mBed);
             }
 
             // Gets the Town
             match = [title rangeOfString: TOWN_REGX options:NSRegularExpressionSearch];
             if(!(match.location == NSNotFound)) {
-                NSLog (@"Town: ==%@==", [title substringWithRange: NSMakeRange (match.location+2, match.length-5)]);
+                mTown = [title substringWithRange: NSMakeRange (match.location+2, match.length-5)];
+                NSLog (@"Town: ==%@==", mTown);
             }
-
-        } else continue;
+        };
 
         // Links
-        NSArray *links = [rdf elementsForName:@"dc:source"];
+        NSArray *links = [item elementsForName:@"dc:source"];
         if (links.count > 0) {
             GDataXMLElement *link = (GDataXMLElement *) [links objectAtIndex:0];
-            NSLog(@"URL: %@", link.stringValue);
-        } else continue;
+            mUrl = link.stringValue;
+            NSLog(@"URL: %@", mUrl);
+        };
+        
+        // Adds the Listing in the Data Model
+        Listing *l = [[Listing alloc] initListingWithTitle:mTitle andUrl:mUrl andCategory:[dataModel currentSection] andTown:mTown andPrice:mPrice andBed:mBed];
+        [dataModel addSearchListing:l];
     }
 }
 
@@ -278,25 +273,6 @@ NSMutableArray *listingsUrl;
         listingsUrl = [[NSMutableArray alloc] init];
     
     [listingsUrl addObject:detailUrl];
-    
-    /*if (namespaceURI != nil)
-        NSLog(@"namespace: %@", namespaceURI);
-    
-    if (qName != nil)
-        NSLog(@"qualifiedName: %@", qName);
-    
-    // print all attributes for this element
-    NSEnumerator *attribs = [attributeDict keyEnumerator];
-    NSString *key, *value;
-    
-    while((key = [attribs nextObject]) != nil) {
-        value = [attributeDict objectForKey:key];
-        NSLog(@"  attribute: %@ = %@", key, value);*/
-    
-    //if(![elementName isEqual:@"rdf:Seq"])
-        //return;
-    
-    
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {

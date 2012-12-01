@@ -24,6 +24,7 @@
         [self populateCategories];
         
         locations = [[NSMutableArray alloc] init];
+        listings = [[NSMutableArray alloc] init];
         [self populateLocations];
         
         [self addSection:@"Category"];
