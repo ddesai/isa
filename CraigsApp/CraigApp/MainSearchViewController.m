@@ -82,7 +82,7 @@ DataModel *dataModel;
     }
     
     NSString *strData = [[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
-    NSLog(@"My Data: %@", strData);
+    //NSLog(@"My Data: %@", strData);
     
     //NSXMLParser *xmlParser = [[NSXMLParser alloc]initWithData:data];
     //[xmlParser parse];
