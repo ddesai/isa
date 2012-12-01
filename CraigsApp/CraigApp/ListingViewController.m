@@ -8,6 +8,7 @@
 
 #import "ListingViewController.h"
 #import "CraigAppAppDelegate.h"
+#import "GDataXMLNode.h"
 
 @interface ListingViewController ()
 
@@ -176,7 +177,17 @@ NSMutableArray *listingsUrl;
 }
 
 
-
+-(void) parseDocumentUsingDocParser:(NSData*)data {
+    NSError *error;
+    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:data
+                                                           options:0 error:&error];
+    //if (doc == nil) { return nil; }
+    
+    NSLog(@"========= %@ === ", doc.rootElement);
+    
+    //[doc release];
+    //[xmlData release];
+}
 
 
 
@@ -199,21 +210,22 @@ NSMutableArray *listingsUrl;
     else
         NSLog(@"OK");
     
+    [self parseDocumentUsingDocParser:data];
     //[xmlparser release];
     return ok;
 }
 
 -(void)parserDidStartDocument:(NSXMLParser *)parser {
-    NSLog(@"didStartDocument");
+    //NSLog(@"didStartDocument");
 }
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser {
-    NSLog(@"didEndDocument");
+    //NSLog(@"didEndDocument");
 }
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
-    NSLog(@"didStartElement: %@", elementName);
+    //NSLog(@"didStartElement: %@", elementName);
   
     
     if (![elementName isEqualToString:@"rdf:li"])

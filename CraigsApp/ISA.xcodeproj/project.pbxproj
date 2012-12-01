@@ -19,6 +19,8 @@
 		6A9E75B4166307C70014F8D3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9E75B3166307C70014F8D3 /* MapKit.framework */; };
 		6A9E75BE16630EC70014F8D3 /* ISAMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9E75BD16630EC70014F8D3 /* ISAMapPoint.m */; };
 		6A9E75C0166350B70014F8D3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9E75BF166350B70014F8D3 /* CoreLocation.framework */; };
+		6A9E75CC166850110014F8D3 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9E75CB166850110014F8D3 /* GDataXMLNode.m */; };
+		6A9E75D0166855B70014F8D3 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9E75CF166855B70014F8D3 /* libxml2.2.dylib */; };
 		9502DF98163DDB3500FD680E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF97163DDB3500FD680E /* UIKit.framework */; };
 		9502DF9A163DDB3500FD680E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF99163DDB3500FD680E /* Foundation.framework */; };
 		9502DF9C163DDB3500FD680E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502DF9B163DDB3500FD680E /* CoreGraphics.framework */; };
@@ -65,6 +67,9 @@
 		6A9E75BC16630EC60014F8D3 /* ISAMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAMapPoint.h; sourceTree = "<group>"; };
 		6A9E75BD16630EC70014F8D3 /* ISAMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAMapPoint.m; sourceTree = "<group>"; };
 		6A9E75BF166350B70014F8D3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6A9E75C916684FB00014F8D3 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		6A9E75CB166850110014F8D3 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		6A9E75CF166855B70014F8D3 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		9502DF93163DDB3500FD680E /* ISA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ISA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9502DF97163DDB3500FD680E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9502DF99163DDB3500FD680E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9E75D0166855B70014F8D3 /* libxml2.2.dylib in Frameworks */,
 				6A9E75C0166350B70014F8D3 /* CoreLocation.framework in Frameworks */,
 				6A9E75B4166307C70014F8D3 /* MapKit.framework in Frameworks */,
 				9502DF98163DDB3500FD680E /* UIKit.framework in Frameworks */,
@@ -115,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				95D48E5316688DFA0009BF04 /* Resources */,
+				6A9E75CF166855B70014F8D3 /* libxml2.2.dylib */,
 				6A9E75BF166350B70014F8D3 /* CoreLocation.framework */,
 				6A9E75B3166307C70014F8D3 /* MapKit.framework */,
 				9510E976164C9D9F00FDF50E /* Default-568h@2x.png */,
@@ -177,6 +184,8 @@
 				6A9E75AD165DA2BB0014F8D3 /* Locations.m */,
 				9510E97C164CA1C200FDF50E /* ResultData.h */,
 				9510E97D164CA1C300FDF50E /* ResultData.m */,
+				6A9E75C916684FB00014F8D3 /* GDataXMLNode.h */,
+				6A9E75CB166850110014F8D3 /* GDataXMLNode.m */,
 				9502DF9E163DDB3500FD680E /* Supporting Files */,
 			);
 			path = CraigApp;
@@ -304,6 +313,7 @@
 				6A9E75BE16630EC70014F8D3 /* ISAMapPoint.m in Sources */,
 				956F431016632635007EED70 /* DetailViewController.m in Sources */,
 				95A0F42C16668F5700AF622B /* CraigAppAppDelegate.m in Sources */,
+				6A9E75CC166850110014F8D3 /* GDataXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +342,7 @@
 		9502DFBA163DDB3500FD680E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -349,6 +359,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
@@ -357,7 +368,7 @@
 		9502DFBB163DDB3500FD680E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -367,6 +378,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
