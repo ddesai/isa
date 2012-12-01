@@ -181,15 +181,56 @@ NSMutableArray *listingsUrl;
     NSError *error;
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:data
                                                            options:0 error:&error];
-    //if (doc == nil) { return nil; }
-    
-    NSLog(@"========= %@ === ", doc.rootElement);
-    
-    //[doc release];
-    //[xmlData release];
+    if (doc != nil)
+        [self getPostings:doc];
+    else
+        NSLog(@"ERROR --  Could not parse the Craigslist Results");
 }
 
+-(void) getPostings:(GDataXMLDocument*) doc {
+    NSString *PRICE_REGX = @" \\$[0-9]+ ";
+    NSString *BED_REGX = @" [0-9]bd";
+    NSString *TOWN_REGX = @" \\((.*)\\) \\$";
+    NSRange match;
 
+    NSArray *rdfs = [doc.rootElement elementsForName:@"item"];
+    for (GDataXMLElement *rdf in rdfs) {
+
+        // Title
+        NSArray *titles = [rdf elementsForName:@"dc:title"];
+        if (titles.count > 0) {
+            GDataXMLElement *titleElement = (GDataXMLElement *) [titles objectAtIndex:0];
+            NSString *title = titleElement.stringValue;
+            NSLog(@"Title: %@", title);
+
+            // Gets the price
+            match = [title rangeOfString: PRICE_REGX options:NSRegularExpressionSearch];
+            if(!(match.location == NSNotFound)) {
+                NSLog (@"Price: ==%@==", [title substringWithRange: NSMakeRange (match.location+1, match.length-2)]);
+            }
+            
+            // Gets the #of Beds
+            match = [title rangeOfString: BED_REGX options:NSRegularExpressionSearch];
+            if(!(match.location == NSNotFound)) {
+                NSLog (@"Beds: ==%@==", [title substringWithRange: NSMakeRange (match.location+1, match.length-1)]);
+            }
+
+            // Gets the Town
+            match = [title rangeOfString: TOWN_REGX options:NSRegularExpressionSearch];
+            if(!(match.location == NSNotFound)) {
+                NSLog (@"Town: ==%@==", [title substringWithRange: NSMakeRange (match.location+2, match.length-5)]);
+            }
+
+        } else continue;
+
+        // Links
+        NSArray *links = [rdf elementsForName:@"dc:source"];
+        if (links.count > 0) {
+            GDataXMLElement *link = (GDataXMLElement *) [links objectAtIndex:0];
+            NSLog(@"URL: %@", link.stringValue);
+        } else continue;
+    }
+}
 
 
 -(BOOL)parseDocumentWithNSData:(NSData *)data{
@@ -259,23 +300,23 @@ NSMutableArray *listingsUrl;
 }
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    NSLog(@"didEndElement: %@", elementName);
+    //NSLog(@"didEndElement: %@", elementName);
 }
 
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
     
-    NSLog(@"element has value %@\n", string);
+    //NSLog(@"element has value %@\n", string);
 }
 
 
 // error handling
 -(void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-    NSLog(@"XMLParser error: %@", [parseError localizedDescription]);
+    //NSLog(@"XMLParser error: %@", [parseError localizedDescription]);
 }
 
 -(void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)validationError {
-    NSLog(@"XMLParser error: %@", [validationError localizedDescription]);
+    //NSLog(@"XMLParser error: %@", [validationError localizedDescription]);
 }
 
 
