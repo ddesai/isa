@@ -188,7 +188,7 @@ NSMutableArray *listingsUrl;
 }
 
 -(void) getPostings:(GDataXMLDocument*) doc {
-    NSString *PRICE_REGX = @" \\$[0-9]+ ";
+    NSString *PRICE_REGX = @" \\$[0-9]+";
     NSString *BED_REGX = @" [0-9]bd";
     NSString *TOWN_REGX = @" \\((.*)\\) \\$";
     NSRange match;
@@ -206,7 +206,7 @@ NSMutableArray *listingsUrl;
             // Gets the price
             match = [title rangeOfString: PRICE_REGX options:NSRegularExpressionSearch];
             if(!(match.location == NSNotFound)) {
-                NSLog (@"Price: ==%@==", [title substringWithRange: NSMakeRange (match.location+1, match.length-2)]);
+                NSLog (@"Price: ==%@==", [title substringWithRange: NSMakeRange (match.location+1, match.length-1)]);
             }
             
             // Gets the #of Beds
