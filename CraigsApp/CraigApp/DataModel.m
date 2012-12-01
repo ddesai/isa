@@ -13,6 +13,7 @@
 @synthesize categories, locations, regions, neighborhoods, towns, sections, test, listingResults;
 @synthesize currentCategory, currentLocation, currentSection;
 @synthesize favorites;
+@synthesize listings;
 
 - (id)init
 {
@@ -298,6 +299,35 @@
     if(self.favorites){
         [self.favorites removeLastObject];
     }
+}
+
+// ******** searchListings
+- (void)addSearchListing: (Listing*) newListing
+{
+    if([self listings])
+        [listings addObject:newListing];
+}
+
+- (Listing *)getListingAtIndex: (NSUInteger) index
+{
+    return [listings objectAtIndex:index];
+}
+
+- (NSString *)getListingTitleAtIndex: (NSUInteger) index
+{
+    Listing *l = [listings objectAtIndex:index];
+    return l.title;
+}
+
+- (NSString *)getListingUrlAtIndex: (NSUInteger) index
+{
+    Listing *l = [listings objectAtIndex:index];
+    return l.url;
+}
+
+- (NSUInteger)numberOfListings
+{
+    return [listings count];
 }
 
 @end

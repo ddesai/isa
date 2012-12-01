@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Categories.h"
 #import "Locations.h"
+#import "Listing.h"
 
 typedef enum
 {
@@ -38,6 +39,7 @@ typedef enum
 @property (strong, atomic) NSString *test;
 @property (strong, atomic) NSData* listingResults;
 @property (strong, atomic) NSMutableArray *favorites;
+@property (strong, atomic) NSMutableArray *listings;
 
 // ******** Craigslist Sections
 - (void)addSection:(NSString *) newMember;
@@ -75,5 +77,12 @@ typedef enum
 // ********** Add favofites
 -(void)addToFavorites:(id) newMember;
 -(void)removeFromFavorites;
+
+// ******** searchListings
+- (void)addSearchListing: (Listing*) newListing;
+- (Listing *)getListingAtIndex: (NSUInteger) index;
+- (NSString *)getListingTitleAtIndex: (NSUInteger) index;
+- (NSString *)getListingUrlAtIndex: (NSUInteger) index;
+- (NSUInteger)numberOfListings;
 
 @end
