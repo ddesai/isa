@@ -77,8 +77,34 @@ NSMutableArray *listingsUrl;
     
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
     
-    // hook up iboutlets from cells to (dummy) data
+    // for all categories
     cell.titleLabel.text = l.title;
+    
+    switch([dataModel currentCategory].searchType)
+    {
+        case SEARCH_HOUSING:
+            cell.label1.text = l.town;
+            cell.label2.text = l.price;
+
+            break;
+        case SEARCH_FORSALE:
+
+            break;
+        case SEARCH_GIGS:
+
+            break;
+        case SEARCH_COMMUNITY:
+
+            break;
+        case SEARCH_SERVICES:
+
+            break;
+        case SEARCH_RESUME:
+
+            break;
+        default:
+            break;
+    }  // end switch
     
     return cell;
 }
