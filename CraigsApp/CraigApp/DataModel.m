@@ -25,6 +25,8 @@
         
         locations = [[NSMutableArray alloc] init];
         listings = [[NSMutableArray alloc] init];
+        favorites = [[NSMutableArray alloc] init];
+
         [self populateLocations];
         
         [self addSection:@"Category"];
@@ -288,19 +290,35 @@
 
 }
 
--(void)addToFavorites:(id) newMember{
-    if(!self.favorites){
-        self.favorites =  [[NSMutableArray alloc]init];
-    }
-    
+// ************** Favorites
+
+-(void)addToFavorites:(Listing*) newMember{
+    newMember.isFav = YES;
     [self.favorites addObject:newMember];
 }
 
--(void)removeFromFavorites{
-    if(self.favorites){
+-(void)removeLastFromFavorites{
+    if([favorites lastObject])
+    {
+        ((Listing*)[favorites lastObject]).isFav = NO;
         [self.favorites removeLastObject];
     }
 }
+
+-(Listing*)getFavoriteAtIndex: (NSUInteger) index
+{
+    return [favorites objectAtIndex:index];
+}
+
+-(void)removeFavoriteAtIndex: (NSUInteger) index
+{
+    if([favorites objectAtIndex:index])
+    {
+        ((Listing*)[favorites objectAtIndex:index]).isFav = NO;
+        [favorites removeObjectAtIndex:index];
+    }
+}
+
 
 // ******** searchListings
 - (void)addSearchListing: (Listing*) newListing

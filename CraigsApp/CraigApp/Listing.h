@@ -17,6 +17,7 @@
     NSString *price;
     NSString *bed;
     SearchSubCatType listingCategory;
+    BOOL isFav;
 }
 
 @property (strong, atomic) NSString *title;
@@ -25,6 +26,7 @@
 @property (strong, atomic) NSString *price;
 @property (strong, atomic) NSString *bed;
 @property (atomic) SearchSubCatType listingCategory;
+@property (atomic) BOOL isFav;
 
 - (id) initListingWithTitle:(NSString*)newTitle andUrl:(NSString*)newUrl andCategory:(SearchSubCatType)newCat andTown:(NSString*)newTown andPrice:(NSString*)newPrice andBed:(NSString*)newBed;
 - (id) initListingWithTitle:(NSString*)newTitle andUrl:(NSString*)newUrl andCategory:(SearchSubCatType)newCat andTown:(NSString*)newTown andPrice:(NSString*)newPrice andBed:(NSString*)newBed;

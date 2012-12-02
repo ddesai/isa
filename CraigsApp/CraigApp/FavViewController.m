@@ -9,12 +9,6 @@
 #import "CraigAppAppDelegate.h"
 #import "FavViewController.h"
 
-@interface FavViewController ()
-
-@end
-
-
-
 @implementation FavViewController
 {
    DataModel *dataModel;
@@ -73,7 +67,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    NSString *favTitle  = [dataModel.favorites objectAtIndex:indexPath.row];
+    NSString *favTitle  = [[dataModel.favorites objectAtIndex:indexPath.row] title];
     cell.textLabel.text = favTitle;
     
     return cell;

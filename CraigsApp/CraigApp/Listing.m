@@ -25,6 +25,7 @@
         price = newPrice;
         bed = newBed;
         listingCategory = newCat;
+        isFav = NO;
     }
     return self;
 }

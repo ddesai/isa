@@ -14,7 +14,7 @@ DataModel *dataModel;
 
 @implementation ListingViewController
 {
-NSMutableArray *listingsUrl;
+    NSMutableArray *listingsUrl;
 }
 
 // comment out this method as storyboarded-custom cell with cell identifier will
@@ -36,9 +36,6 @@ NSMutableArray *listingsUrl;
 
 - (void)viewDidLoad
 {
-    
-
-    
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -76,7 +73,7 @@ NSMutableArray *listingsUrl;
     Listing *l = [dataModel getListingAtIndex:indexPath.row];
     
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
-    
+
     // for all categories
     cell.titleLabel.text = l.title;
     
@@ -169,13 +166,13 @@ NSMutableArray *listingsUrl;
 
 -(void) addDataToFavorites:(int)row
 {
-    [dataModel addToFavorites:[listingsUrl objectAtIndex:row]];
+    [dataModel addToFavorites:[dataModel getListingAtIndex:row]];
 }
 
 
 -(void)removeDataFromFavorites
 {
-    [dataModel removeFromFavorites];
+    [dataModel removeLastFromFavorites];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -184,7 +181,6 @@ NSMutableArray *listingsUrl;
     UIStoryboard *storyboard = self.storyboard;
     
     DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
-    //dvc.listingUrl = [listingsUrl objectAtIndex:indexPath.row];
     dvc.listingUrl = [dataModel getListingUrlAtIndex:indexPath.row];
     [self.navigationController pushViewController:dvc animated:YES];
 }

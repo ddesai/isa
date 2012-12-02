@@ -75,8 +75,10 @@ typedef enum
 - (NSUInteger)numberOfTowns;
 
 // ********** Add favofites
--(void)addToFavorites:(id) newMember;
--(void)removeFromFavorites;
+-(void)addToFavorites:(Listing*) newMember;
+-(Listing*)getFavoriteAtIndex: (NSUInteger) index;
+-(void)removeLastFromFavorites;
+-(void)removeFavoriteAtIndex: (NSUInteger) index;
 
 // ******** searchListings
 - (void)addSearchListing: (Listing*) newListing;
