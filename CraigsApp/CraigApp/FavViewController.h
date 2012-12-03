@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Listing.h"
+#import "FavCell.h"
+#import "DetailViewController.h"
 
 @interface FavViewController : UITableViewController
 

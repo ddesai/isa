@@ -6,10 +6,10 @@
 //
 //
 
-#import "CraigAppAppDelegate.h"
-#import "FavViewController.h"
-#import "Listing.h"
 
+#import "FavViewController.h"
+#import "CraigAppAppDelegate.h"
+//#import "DetailViewController.h"
 @implementation FavViewController
 {
    DataModel *dataModel;
@@ -62,18 +62,72 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    static NSString *CellIdentifier = @"FAVCELL";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
     NSUInteger row  = [indexPath indexAtPosition:indexPath.row];
-    NSLog(@"%d", row);
-    // Configure the cell
-    Listing *favListing = [dataModel.favorites objectAtIndex:row];
-    NSString *favTitle  = favListing.title;
-    cell.textLabel.text = favTitle;
+    Listing *l = [dataModel getFavoriteAtIndex:row];
+    
+    FavCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FAVCELL"];
+    
+    
+    // Cleanup title using regex
+    NSError *error = NULL;
+    NSRegularExpression *regex1 = [NSRegularExpression regularExpressionWithPattern:@"\\((.*)\\)" options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSString *title1 = [regex1 stringByReplacingMatchesInString:l.title options:0 range:NSMakeRange(0, [l.title length]) withTemplate:@""];
+    
+    NSRegularExpression *regex2 = [NSRegularExpression regularExpressionWithPattern:@"\\$[0-9]+" options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSString *title2 = [regex2 stringByReplacingMatchesInString:title1 options:0 range:NSMakeRange(0, [title1 length]) withTemplate:@""];
+    
+    
+    NSLog(@"title %@", title2);
+    
+    cell.titleLabel.text = title2;
+    
+    switch([dataModel currentCategory].searchType)
+    {
+        case SEARCH_HOUSING:
+            cell.label1.text = l.town;
+            cell.label2.text = l.price;
+            break;
+        case SEARCH_FORSALE:
+            cell.label1.text = l.town;
+            cell.label2.text = l.price;
+            break;
+        case SEARCH_GIGS:
+            cell.label1.text = l.town;
+            //cell.label2.text = l.price;
+            break;
+        case SEARCH_COMMUNITY:
+            cell.label1.text = l.town;
+            //cell.label2.text = l.price;
+            
+            break;
+        case SEARCH_SERVICES:
+            cell.label1.text = l.town;
+            //cell.label2.text = l.price;
+            
+            break;
+        case SEARCH_RESUME:
+            cell.label1.text = l.town;
+            //cell.label2.text = l.price;
+            break;
+        default:
+            break;
+    }  // end switch
+    
     
     return cell;
+
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    UIStoryboard *storyboard = self.storyboard;
+    
+    DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    dvc.listingUrl = [dataModel getListingUrlAtIndex:indexPath.row];
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 /*
@@ -119,13 +173,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 

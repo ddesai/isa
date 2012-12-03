@@ -300,27 +300,41 @@
 }
 
 
--(void)removeLastFromFavorites{
-    if([favorites lastObject])
-    {
-        ((Listing*)[favorites lastObject]).isFav = NO;
-        [self.favorites removeLastObject];
-    }
+-(void)addIndexToFavorites:(int)index
+{
+    
+    [self.indexFavorites replaceObjectAtIndex:index withObject: [NSNumber numberWithBool:YES] ];
+    
 }
 
 
 -(Listing*)getFavoriteAtIndex: (NSUInteger) index
 {
-    return [favorites objectAtIndex:index];
+    if(favorites.count)
+        return [favorites objectAtIndex:index];
+    else
+        return NULL;
 }
 
 
--(void)removeFavoriteAtIndex: (NSUInteger) index
+
+-(void)removeFromFavorites:(Listing *)member
 {
-    if([favorites objectAtIndex:index])
+   /* if([favorites lastObject])
     {
-        ((Listing*)[favorites objectAtIndex:index]).isFav = NO;
-        [favorites removeObjectAtIndex:index];
+        ((Listing*)[favorites lastObject]).isFav = NO;
+        [self.favorites removeLastObject];
+    }*/
+    
+    [favorites removeObjectIdenticalTo:member];
+}
+
+
+-(void)removeIndexFromFavorites:(int)row
+{
+    
+    if(self.indexFavorites){
+        [self.indexFavorites replaceObjectAtIndex:row withObject: [NSNumber numberWithBool:NO] ];
     }
 }
 
@@ -337,22 +351,10 @@
 }
 
 
--(void)addIndexToFavorites:(int)index
-{
-    
-    [self.indexFavorites replaceObjectAtIndex:index withObject: [NSNumber numberWithBool:YES] ];
 
 
-}
 
 
--(void)removeIndexFromFavorites:(int)index
-{
-    
-    if(self.indexFavorites){
-        [self.indexFavorites replaceObjectAtIndex:index withObject: [NSNumber numberWithBool:NO] ];
-    }
-}
 
 
 -(BOOL)checkIfIndexIsFav:(int)index

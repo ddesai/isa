@@ -28,6 +28,7 @@
 		9502DFA2163DDB3500FD680E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9502DFA0163DDB3500FD680E /* InfoPlist.strings */; };
 		9502DFA4163DDB3500FD680E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502DFA3163DDB3500FD680E /* main.m */; };
 		9502DFAB163DDB3500FD680E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */; };
+		950DD0BF166CBDBD00172D85 /* FavCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950DD0BE166CBDBD00172D85 /* FavCell.m */; };
 		9510E977164C9D9F00FDF50E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9510E976164C9D9F00FDF50E /* Default-568h@2x.png */; };
 		9510E97B164C9EB400FDF50E /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97A164C9EB400FDF50E /* TableCell.m */; };
 		9510E97E164CA1C300FDF50E /* ResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97D164CA1C300FDF50E /* ResultData.m */; };
@@ -83,6 +84,8 @@
 		9502DFA3163DDB3500FD680E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9502DFA5163DDB3500FD680E /* ISA-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ISA-Prefix.pch"; sourceTree = "<group>"; };
 		9502DFAA163DDB3500FD680E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		950DD0BD166CBDBD00172D85 /* FavCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavCell.h; sourceTree = "<group>"; };
+		950DD0BE166CBDBD00172D85 /* FavCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavCell.m; sourceTree = "<group>"; };
 		9510E976164C9D9F00FDF50E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9510E979164C9EB400FDF50E /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		9510E97A164C9EB400FDF50E /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				95A0F42B16668F5700AF622B /* CraigAppAppDelegate.m */,
 				9510E979164C9EB400FDF50E /* TableCell.h */,
 				9510E97A164C9EB400FDF50E /* TableCell.m */,
+				950DD0BD166CBDBD00172D85 /* FavCell.h */,
+				950DD0BE166CBDBD00172D85 /* FavCell.m */,
 				9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */,
 				956F430E16632635007EED70 /* DetailViewController.h */,
 				956F430F16632635007EED70 /* DetailViewController.m */,
@@ -325,6 +330,7 @@
 				95A0F42C16668F5700AF622B /* CraigAppAppDelegate.m in Sources */,
 				6A9E75CC166850110014F8D3 /* GDataXMLNode.m in Sources */,
 				6A28E5C4166AAAC6007DBAE6 /* Listing.m in Sources */,
+				950DD0BF166CBDBD00172D85 /* FavCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -78,8 +78,8 @@ typedef enum
 // ********** Add favofites
 -(void)addToFavorites:(Listing*) newMember;
 -(Listing*)getFavoriteAtIndex: (NSUInteger) index;
--(void)removeLastFromFavorites;
--(void)removeFavoriteAtIndex: (NSUInteger) index;
+-(void)removeFromFavorites:(Listing *)member;
+-(void)removeIndexFromFavorites:(int)row;
 -(void)addIndexToFavorites:(int)index;
 -(void)removeIndexFromFavorites:(int)index;
 -(BOOL)checkIfIndexIsFav:(int)index;

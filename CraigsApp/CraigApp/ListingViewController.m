@@ -102,11 +102,11 @@ DataModel *dataModel;
             break;
         case SEARCH_GIGS:
             cell.label1.text = l.town;
-            //cell.label2.text = l.price;
+            cell.label2.text = l.price;
             break;
         case SEARCH_COMMUNITY:
             cell.label1.text = l.town;
-            //cell.label2.text = l.price;
+            cell.label2.text = l.price;
 
             break;
         case SEARCH_SERVICES:
@@ -198,7 +198,8 @@ DataModel *dataModel;
 
 -(void)removeDataFromFavorites:(int)row
 {
-    [dataModel removeLastFromFavorites];
+    Listing *oldMember = [dataModel getListingAtIndex:row];
+    [dataModel removeFromFavorites:oldMember];
     [dataModel removeIndexFromFavorites:row];
 }
 
