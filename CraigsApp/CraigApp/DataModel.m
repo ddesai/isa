@@ -14,6 +14,7 @@
 @synthesize currentCategory, currentLocation, currentSection;
 @synthesize favorites;
 @synthesize listings;
+@synthesize indexFavorites;
 
 - (id)init
 {
@@ -26,6 +27,7 @@
         locations = [[NSMutableArray alloc] init];
         listings = [[NSMutableArray alloc] init];
         favorites = [[NSMutableArray alloc] init];
+        indexFavorites = [[NSMutableArray alloc] init];
 
         [self populateLocations];
         
@@ -297,6 +299,7 @@
     [self.favorites addObject:newMember];
 }
 
+
 -(void)removeLastFromFavorites{
     if([favorites lastObject])
     {
@@ -305,10 +308,12 @@
     }
 }
 
+
 -(Listing*)getFavoriteAtIndex: (NSUInteger) index
 {
     return [favorites objectAtIndex:index];
 }
+
 
 -(void)removeFavoriteAtIndex: (NSUInteger) index
 {
@@ -318,6 +323,53 @@
         [favorites removeObjectAtIndex:index];
     }
 }
+
+
+-(void)fillFavoriteIndeces
+{
+    
+    NSMutableArray *_indexFavorites = [[NSMutableArray alloc]init];
+    for(int i=0; i<self.listings.count; i++){
+        [_indexFavorites addObject:[NSNumber numberWithBool:NO]];
+        self.indexFavorites = _indexFavorites;
+    }
+   
+}
+
+
+-(void)addIndexToFavorites:(int)index
+{
+    
+    [self.indexFavorites replaceObjectAtIndex:index withObject: [NSNumber numberWithBool:YES] ];
+
+
+}
+
+
+-(void)removeIndexFromFavorites:(int)index
+{
+    
+    if(self.indexFavorites){
+        [self.indexFavorites replaceObjectAtIndex:index withObject: [NSNumber numberWithBool:NO] ];
+    }
+}
+
+
+-(BOOL)checkIfIndexIsFav:(int)index
+{
+    
+    NSNumber  *checked = [self.indexFavorites objectAtIndex:index];
+    
+    BOOL boolChecked = [checked boolValue];
+
+    if( boolChecked )
+        return YES;
+    else
+        return NO;
+}
+
+
+
 
 
 // ******** searchListings

@@ -16,6 +16,6 @@
 
 -(BOOL)parseDocumentWithNSData:(NSData *)data;
 -(void) addDataToFavorites:(int)row;
--(void)removeDataFromFavorites;
+-(void) removeDataFromFavorites:(int)row;
 
 @end

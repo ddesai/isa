@@ -102,6 +102,11 @@ DataModel *dataModel;
         default:
             break;
     }  // end switch
+
+    
+    // check if favorites items have been checked
+	UIImage *favCheckedImage = [dataModel checkIfIndexIsFav:indexPath.row] ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
+	[cell.addToFavButton setImage:favCheckedImage forState:UIControlStateNormal];
     
     return cell;
 }
@@ -154,25 +159,28 @@ DataModel *dataModel;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    /*TableCell *cell = (TableCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell checkFav:nil];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    BOOL favChecked = cell.favChecked;
-    if(favChecked){
+    //TableCell *cell = (TableCell *)[tableView cellForRowAtIndexPath:indexPath];
+    //[cell checkFav:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    //BOOL favChecked = cell.favChecked;
+    //if(favChecked){
 
-        [dataModel addToFavorites:[listingsUrl objectAtIndex:indexPath.row]];
-    }*/
+        //[dataModel addToFavorites:[listingsUrl objectAtIndex:indexPath.row]];
+    //}*/
 }
 
 -(void) addDataToFavorites:(int)row
 {
-    [dataModel addToFavorites:[dataModel getListingAtIndex:row]];
+    Listing *newMember = [dataModel getListingAtIndex:row];
+    [dataModel addToFavorites:newMember];
+    [dataModel addIndexToFavorites:row];
 }
 
 
--(void)removeDataFromFavorites
+-(void)removeDataFromFavorites:(int)row
 {
     [dataModel removeLastFromFavorites];
+    [dataModel removeIndexFromFavorites:row];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -190,8 +198,10 @@ DataModel *dataModel;
     NSError *error;
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:data
                                                            options:0 error:&error];
-    if (doc != nil)
+    if (doc != nil){
         [self parseSearchResults:doc];
+        [dataModel fillFavoriteIndeces];
+    }
     else
         NSLog(@"ERROR --  Could not parse the Craigslist Results");
 }

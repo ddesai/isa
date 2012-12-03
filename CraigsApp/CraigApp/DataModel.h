@@ -40,6 +40,7 @@ typedef enum
 @property (strong, atomic) NSData* listingResults;
 @property (strong, atomic) NSMutableArray *favorites;
 @property (strong, atomic) NSMutableArray *listings;
+@property (strong, atomic) NSMutableArray *indexFavorites;
 
 // ******** Craigslist Sections
 - (void)addSection:(NSString *) newMember;
@@ -79,6 +80,10 @@ typedef enum
 -(Listing*)getFavoriteAtIndex: (NSUInteger) index;
 -(void)removeLastFromFavorites;
 -(void)removeFavoriteAtIndex: (NSUInteger) index;
+-(void)addIndexToFavorites:(int)index;
+-(void)removeIndexFromFavorites:(int)index;
+-(BOOL)checkIfIndexIsFav:(int)index;
+-(void)fillFavoriteIndeces;
 
 // ******** searchListings
 - (void)addSearchListing: (Listing*) newListing;

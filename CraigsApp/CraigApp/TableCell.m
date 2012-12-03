@@ -49,8 +49,11 @@
     ListingViewController  *lvc = (ListingViewController *)[tv dataSource];
     if(self.favChecked)
         [lvc addDataToFavorites:row];
+        
     else
-        [lvc removeDataFromFavorites];
+        [lvc removeDataFromFavorites:row];
+        
+    
 
 
 }

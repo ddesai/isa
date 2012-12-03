@@ -8,6 +8,7 @@
 
 #import "CraigAppAppDelegate.h"
 #import "FavViewController.h"
+#import "Listing.h"
 
 @implementation FavViewController
 {
@@ -49,7 +50,6 @@
 {
     // Return the number of sections.
     dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
-    
     return dataModel.favorites.count;
     
 }
@@ -66,8 +66,11 @@
     static NSString *CellIdentifier = @"FAVCELL";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
-    NSString *favTitle  = [[dataModel.favorites objectAtIndex:indexPath.row] title];
+    NSUInteger row  = [indexPath indexAtPosition:indexPath.row];
+    NSLog(@"%d", row);
+    // Configure the cell
+    Listing *favListing = [dataModel.favorites objectAtIndex:row];
+    NSString *favTitle  = favListing.title;
     cell.textLabel.text = favTitle;
     
     return cell;
