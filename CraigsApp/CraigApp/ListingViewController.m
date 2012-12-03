@@ -73,31 +73,50 @@ DataModel *dataModel;
     Listing *l = [dataModel getListingAtIndex:indexPath.row];
     
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
-
-    // for all categories
-    cell.titleLabel.text = l.title;
+    
+    
+    // Cleanup title using regex
+    NSError *error = NULL;
+    NSRegularExpression *regex1 = [NSRegularExpression regularExpressionWithPattern:@"\\((.*)\\)" options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSString *title1 = [regex1 stringByReplacingMatchesInString:l.title options:0 range:NSMakeRange(0, [l.title length]) withTemplate:@""];
+    
+    NSRegularExpression *regex2 = [NSRegularExpression regularExpressionWithPattern:@"\\$[0-9]+" options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    NSString *title2 = [regex2 stringByReplacingMatchesInString:title1 options:0 range:NSMakeRange(0, [title1 length]) withTemplate:@""];
+    
+    
+    NSLog(@"title %@", title2);
+    
+    cell.titleLabel.text = title2;
     
     switch([dataModel currentCategory].searchType)
     {
         case SEARCH_HOUSING:
             cell.label1.text = l.town;
             cell.label2.text = l.price;
-
             break;
         case SEARCH_FORSALE:
-
+            cell.label1.text = l.town;
+            cell.label2.text = l.price;
             break;
         case SEARCH_GIGS:
-
+            cell.label1.text = l.town;
+            //cell.label2.text = l.price;
             break;
         case SEARCH_COMMUNITY:
+            cell.label1.text = l.town;
+            //cell.label2.text = l.price;
 
             break;
         case SEARCH_SERVICES:
+            cell.label1.text = l.town;
+            //cell.label2.text = l.price;
 
             break;
         case SEARCH_RESUME:
-
+            cell.label1.text = l.town;
+            //cell.label2.text = l.price;
             break;
         default:
             break;
