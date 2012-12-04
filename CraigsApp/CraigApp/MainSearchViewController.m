@@ -116,29 +116,30 @@ DataModel *dataModel;
     switch([dataModel currentCategory].searchType)
     {
         case SEARCH_HOUSING:
-            appTitle.text = @"ISA for Housing";
+            self.title = @"ISA for Housing";
             hideBed = NO;
             break;
         case SEARCH_FORSALE:
-            appTitle.text = @"ISA for Sale";
+            self.title = @"ISA for Sale";
             break;
         case SEARCH_GIGS:
-            appTitle.text = @"ISA for Gigs";
+            self.title = @"ISA for Gigs";
             break;
         case SEARCH_COMMUNITY:
-            appTitle.text = @"ISA for Community";
+            self.title = @"ISA for Community";
             break;
         case SEARCH_SERVICES:
-            appTitle.text = @"ISA for Services";
+            self.title = @"ISA for Services";
             break;
         case SEARCH_RESUME:
-            appTitle.text = @"ISA for Resume";
+            self.title = @"ISA for Resume";
             break;
         default:
             break;
     }
     [bedTitle setHidden:hideBed];
     [bedMin setHidden:hideBed];
+    appTitle.text = [[dataModel currentCategory] name];
 }
 
 - (void)didReceiveMemoryWarning
