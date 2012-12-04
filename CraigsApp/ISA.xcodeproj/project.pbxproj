@@ -31,6 +31,7 @@
 		950DD0BF166CBDBD00172D85 /* FavCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950DD0BE166CBDBD00172D85 /* FavCell.m */; };
 		950DD0C3166DD4AB00172D85 /* AboutISAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950DD0C2166DD4AB00172D85 /* AboutISAViewController.m */; };
 		950DD0C5166DD77400172D85 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 950DD0C4166DD77400172D85 /* card.png */; };
+		950DD0C7166DE90E00172D85 /* Craigslist-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 950DD0C6166DE90E00172D85 /* Craigslist-Logo.png */; };
 		9510E977164C9D9F00FDF50E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9510E976164C9D9F00FDF50E /* Default-568h@2x.png */; };
 		9510E97B164C9EB400FDF50E /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97A164C9EB400FDF50E /* TableCell.m */; };
 		9510E97E164CA1C300FDF50E /* ResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97D164CA1C300FDF50E /* ResultData.m */; };
@@ -91,6 +92,7 @@
 		950DD0C1166DD4AB00172D85 /* AboutISAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutISAViewController.h; sourceTree = "<group>"; };
 		950DD0C2166DD4AB00172D85 /* AboutISAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutISAViewController.m; sourceTree = "<group>"; };
 		950DD0C4166DD77400172D85 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
+		950DD0C6166DE90E00172D85 /* Craigslist-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Craigslist-Logo.png"; sourceTree = "<group>"; };
 		9510E976164C9D9F00FDF50E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9510E979164C9EB400FDF50E /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		9510E97A164C9EB400FDF50E /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				95D48E5416688EA40009BF04 /* Icon.png */,
 				95D48E4916688BE30009BF04 /* Icon@2x.png */,
 				95D48E4716688A7A0009BF04 /* location.png */,
+				950DD0C6166DE90E00172D85 /* Craigslist-Logo.png */,
 				95D48E4516688A4E0009BF04 /* gear.png */,
 				95D48E4316688A270009BF04 /* book.png */,
 				95D48E41166889BD0009BF04 /* star.png */,
@@ -311,6 +314,7 @@
 				95D48E5516688EA40009BF04 /* Icon.png in Resources */,
 				95B13949166AF2A600B86305 /* magnify.png in Resources */,
 				950DD0C5166DD77400172D85 /* card.png in Resources */,
+				950DD0C7166DE90E00172D85 /* Craigslist-Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
