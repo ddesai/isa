@@ -46,6 +46,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     [self.detailListing loadRequest:request];
+    self.title = @"Craigslist Page";
 
 }
 
