@@ -29,6 +29,8 @@
 		9502DFA4163DDB3500FD680E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502DFA3163DDB3500FD680E /* main.m */; };
 		9502DFAB163DDB3500FD680E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */; };
 		950DD0BF166CBDBD00172D85 /* FavCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 950DD0BE166CBDBD00172D85 /* FavCell.m */; };
+		950DD0C3166DD4AB00172D85 /* AboutISAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 950DD0C2166DD4AB00172D85 /* AboutISAViewController.m */; };
+		950DD0C5166DD77400172D85 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 950DD0C4166DD77400172D85 /* card.png */; };
 		9510E977164C9D9F00FDF50E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9510E976164C9D9F00FDF50E /* Default-568h@2x.png */; };
 		9510E97B164C9EB400FDF50E /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97A164C9EB400FDF50E /* TableCell.m */; };
 		9510E97E164CA1C300FDF50E /* ResultData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9510E97D164CA1C300FDF50E /* ResultData.m */; };
@@ -86,6 +88,9 @@
 		9502DFAA163DDB3500FD680E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		950DD0BD166CBDBD00172D85 /* FavCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavCell.h; sourceTree = "<group>"; };
 		950DD0BE166CBDBD00172D85 /* FavCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavCell.m; sourceTree = "<group>"; };
+		950DD0C1166DD4AB00172D85 /* AboutISAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutISAViewController.h; sourceTree = "<group>"; };
+		950DD0C2166DD4AB00172D85 /* AboutISAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutISAViewController.m; sourceTree = "<group>"; };
+		950DD0C4166DD77400172D85 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		9510E976164C9D9F00FDF50E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9510E979164C9EB400FDF50E /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		9510E97A164C9EB400FDF50E /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
@@ -168,6 +173,8 @@
 				950DD0BD166CBDBD00172D85 /* FavCell.h */,
 				950DD0BE166CBDBD00172D85 /* FavCell.m */,
 				9502DFA9163DDB3500FD680E /* MainStoryboard.storyboard */,
+				950DD0C1166DD4AB00172D85 /* AboutISAViewController.h */,
+				950DD0C2166DD4AB00172D85 /* AboutISAViewController.m */,
 				956F430E16632635007EED70 /* DetailViewController.h */,
 				956F430F16632635007EED70 /* DetailViewController.m */,
 				6A41BCB816435D5700946256 /* ISAMainViewController.h */,
@@ -218,6 +225,7 @@
 		9510E998164DD97800FDF50E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				950DD0C4166DD77400172D85 /* card.png */,
 				95B13948166AF2A600B86305 /* magnify.png */,
 				95D48E5416688EA40009BF04 /* Icon.png */,
 				95D48E4916688BE30009BF04 /* Icon@2x.png */,
@@ -302,6 +310,7 @@
 				95D48E4A16688BE30009BF04 /* Icon@2x.png in Resources */,
 				95D48E5516688EA40009BF04 /* Icon.png in Resources */,
 				95B13949166AF2A600B86305 /* magnify.png in Resources */,
+				950DD0C5166DD77400172D85 /* card.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +340,7 @@
 				6A9E75CC166850110014F8D3 /* GDataXMLNode.m in Sources */,
 				6A28E5C4166AAAC6007DBAE6 /* Listing.m in Sources */,
 				950DD0BF166CBDBD00172D85 /* FavCell.m in Sources */,
+				950DD0C3166DD4AB00172D85 /* AboutISAViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
