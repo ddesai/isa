@@ -53,12 +53,12 @@
                                                            error:&myerror];
     if (myerror) {
         NSLog(@"%@", [myerror localizedDescription]);
-    } else {
+    } /*else {
         NSLog(@"Data has loaded successfully.");
-    }
+    }*/
     
     NSString *status = [json objectForKey:@"status"];
-    NSLog(@"JSON Parsing Status: %@", status);
+    //NSLog(@"JSON Parsing Status: %@", status);
     
     NSArray* resultsArray = [json objectForKey:@"results"];
     NSDictionary *firstItem = [resultsArray objectAtIndex:0];
@@ -82,13 +82,13 @@
 - (void) annotateMap
 {
     CLLocationCoordinate2D zoomLocation;
-    zoomLocation = [self getCoordinatesFromGoogle:@"120 Hackamore Ln, Fremont, CA"];
+    zoomLocation = [self getCoordinatesFromGoogle:@"100 Hackamore Ln, Fremont, CA"];
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 8*METERS_PER_MILE, 8*METERS_PER_MILE);
     MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
     [_mapView setRegion:adjustedRegion animated:YES];
     
     NSString *address1 = @"55 Hackamore Ln, Fremont, CA 94539";
-    NSString *address2 = @"34775 Bowie Cmn, Fremont, CA 94555";
+    NSString *address2 = @"34660 Bowie Cmn, Fremont, CA 94555";
     NSString *address3 = @"110 Hackamore Ln, Fremont, CA 94539";
 
     ISAMapPoint *annotation;
