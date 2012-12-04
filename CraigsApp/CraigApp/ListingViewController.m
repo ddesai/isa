@@ -90,10 +90,7 @@ DataModel *dataModel;
     NSRegularExpression *regex2 = [NSRegularExpression regularExpressionWithPattern:@"\\$[0-9]+" options:NSRegularExpressionCaseInsensitive error:&error];
     
     NSString *title2 = [regex2 stringByReplacingMatchesInString:title1 options:0 range:NSMakeRange(0, [title1 length]) withTemplate:@""];
-    
-    
-    NSLog(@"title %@", title2);
-    
+        
     cell.titleLabel.text = title2;
     
     switch([dataModel currentCategory].searchType)
@@ -241,28 +238,28 @@ DataModel *dataModel;
         if (titles.count > 0) {
             GDataXMLElement *titleElement = (GDataXMLElement *) [titles objectAtIndex:0];
             NSString *title = titleElement.stringValue;
-            NSLog(@"Title: %@", title);
+            //NSLog(@"Title: %@", title);
             mTitle = title;
 
             // Gets the price
             match = [title rangeOfString: PRICE_REGX options:NSRegularExpressionSearch];
             if(!(match.location == NSNotFound)) {
                 mPrice = [title substringWithRange: NSMakeRange (match.location+1, match.length-1)];
-                NSLog (@"Price: ==%@==", mTitle);
+                //NSLog (@"Price: ==%@==", mTitle);
             }
             
             // Gets the #of Beds
             match = [title rangeOfString: BED_REGX options:NSRegularExpressionSearch];
             if(!(match.location == NSNotFound)) {
                 mBed = [title substringWithRange: NSMakeRange (match.location+1, match.length-1)];
-                NSLog (@"Beds: ==%@==", mBed);
+                //NSLog (@"Beds: ==%@==", mBed);
             }
 
             // Gets the Town
             match = [title rangeOfString: TOWN_REGX options:NSRegularExpressionSearch];
             if(!(match.location == NSNotFound)) {
                 mTown = [title substringWithRange: NSMakeRange (match.location+2, match.length-5)];
-                NSLog (@"Town: ==%@==", mTown);
+                //NSLog (@"Town: ==%@==", mTown);
             }
         };
 
@@ -271,7 +268,7 @@ DataModel *dataModel;
         if (links.count > 0) {
             GDataXMLElement *link = (GDataXMLElement *) [links objectAtIndex:0];
             mUrl = link.stringValue;
-            NSLog(@"URL: %@", mUrl);
+            //NSLog(@"URL: %@", mUrl);
         };
         
         // Adds the Listing in the Data Model

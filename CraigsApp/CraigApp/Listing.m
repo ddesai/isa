@@ -12,7 +12,7 @@
 // Location Class
 @implementation Listing : NSObject
 
-@synthesize title, url, town, price, bed, listingCategory;
+@synthesize title, url, town, price, bed, listingCategory, isFav;
 
 // designated init
 - (id) initListingWithTitle:(NSString*)newTitle andUrl:(NSString*)newUrl andCategory:(SearchSubCatType)newCat andTown:(NSString*)newTown andPrice:(NSString*)newPrice andBed:(NSString*)newBed
