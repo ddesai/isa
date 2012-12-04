@@ -84,6 +84,7 @@ typedef enum
 -(void)removeIndexFromFavorites:(int)index;
 -(BOOL)checkIfIndexIsFav:(int)index;
 -(void)fillFavoriteIndeces;
+- (NSString *)getFAvoritesUrlAtIndex: (NSUInteger) index;
 
 // ******** searchListings
 - (void)addSearchListing: (Listing*) newListing;

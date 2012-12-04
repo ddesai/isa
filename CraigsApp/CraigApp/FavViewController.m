@@ -122,11 +122,12 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
+    NSUInteger row  = [indexPath indexAtPosition:indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     UIStoryboard *storyboard = self.storyboard;
     
     DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
-    dvc.listingUrl = [dataModel getListingUrlAtIndex:indexPath.row];
+    dvc.listingUrl = [dataModel getFAvoritesUrlAtIndex:row];
     [self.navigationController pushViewController:dvc animated:YES];
 }
 

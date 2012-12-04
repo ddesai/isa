@@ -351,7 +351,11 @@
 }
 
 
-
+- (NSString *)getFAvoritesUrlAtIndex: (NSUInteger) index
+{
+    Listing *l = [favorites objectAtIndex:index];
+    return l.url;
+}
 
 
 
