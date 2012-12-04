@@ -63,6 +63,12 @@ DataModel *dataModel;
 {
     //Get the data model instance from AppDelegate
     dataModel = [(CraigAppAppDelegate *)[[UIApplication sharedApplication] delegate] data];
+    if(listingsUrl && [listingsUrl count] > 0)
+        [listingsUrl removeAllObjects];
+
+    if([dataModel numberOfListings] > 0)
+       [[dataModel listings] removeAllObjects];
+    
     [self parseDocumentWithNSData:dataModel.listingResults];
     
     return listingsUrl.count;
@@ -276,6 +282,11 @@ DataModel *dataModel;
         // Adds the Listing in the Data Model
         Listing *l = [[Listing alloc] initListingWithTitle:mTitle andUrl:mUrl andCategory:[dataModel currentSection] andTown:mTown andPrice:mPrice andBed:mBed];
         [dataModel addSearchListing:l];
+        
+        if (!listingsUrl)
+            listingsUrl = [[NSMutableArray alloc] init];
+        
+        [listingsUrl addObject:l.title];
     }
 }
 
@@ -284,32 +295,10 @@ DataModel *dataModel;
     if (data == nil)
         return NO;
     
-    // this is the parsing machine
-    NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithData:data];
-    
-    // this class will handle the events
-    [xmlparser setDelegate:self];
-    [xmlparser setShouldResolveExternalEntities:NO];
-    
-    // now parse the document
-    BOOL ok = [xmlparser parse];
-    if (ok == NO)
-        NSLog(@"error");
-    else
-        NSLog(@"OK");
-    
     [self parseDocumentUsingDocParser:data];
-    //[xmlparser release];
-    return ok;
+    return YES;
 }
 
--(void)parserDidStartDocument:(NSXMLParser *)parser {
-    //NSLog(@"didStartDocument");
-}
-
--(void)parserDidEndDocument:(NSXMLParser *)parser {
-    //NSLog(@"didEndDocument");
-}
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
@@ -326,28 +315,5 @@ DataModel *dataModel;
     
     [listingsUrl addObject:detailUrl];
 }
-
--(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    //NSLog(@"didEndElement: %@", elementName);
-}
-
-
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    
-    //NSLog(@"element has value %@\n", string);
-}
-
-
-// error handling
--(void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-    //NSLog(@"XMLParser error: %@", [parseError localizedDescription]);
-}
-
--(void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)validationError {
-    //NSLog(@"XMLParser error: %@", [validationError localizedDescription]);
-}
-
-
-
 
 @end

@@ -12,7 +12,7 @@
 #import "ParsedListings.h"
 #import "DetailViewController.h"
 
-@interface ListingViewController : UITableViewController <NSXMLParserDelegate>
+@interface ListingViewController : UITableViewController
 
 -(BOOL)parseDocumentWithNSData:(NSData *)data;
 -(void) addDataToFavorites:(int)row;
