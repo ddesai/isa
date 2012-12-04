@@ -90,7 +90,7 @@ DataModel *dataModel;
     NSRegularExpression *regex2 = [NSRegularExpression regularExpressionWithPattern:@"\\$[0-9]+" options:NSRegularExpressionCaseInsensitive error:&error];
     
     NSString *title2 = [regex2 stringByReplacingMatchesInString:title1 options:0 range:NSMakeRange(0, [title1 length]) withTemplate:@""];
-        
+
     cell.titleLabel.text = title2;
     
     switch([dataModel currentCategory].searchType)

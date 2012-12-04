@@ -32,7 +32,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
     
@@ -78,8 +78,7 @@
     
     NSString *title2 = [regex2 stringByReplacingMatchesInString:title1 options:0 range:NSMakeRange(0, [title1 length]) withTemplate:@""];
     
-    
-    NSLog(@"title %@", title2);
+
     
     cell.titleLabel.text = title2;
     
