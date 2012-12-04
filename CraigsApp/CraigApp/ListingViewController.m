@@ -68,8 +68,8 @@ DataModel *dataModel;
 
     if([dataModel numberOfListings] > 0)
        [[dataModel listings] removeAllObjects];
-    
-    [self parseDocumentWithNSData:dataModel.listingResults];
+
+    [self parseDocumentUsingDocParser:dataModel.listingResults];
     
     return listingsUrl.count;
 }
@@ -183,15 +183,7 @@ DataModel *dataModel;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    //TableCell *cell = (TableCell *)[tableView cellForRowAtIndexPath:indexPath];
-    //[cell checkFav:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    //BOOL favChecked = cell.favChecked;
-    //if(favChecked){
-
-        //[dataModel addToFavorites:[listingsUrl objectAtIndex:indexPath.row]];
-    //}*/
 }
 
 -(void) addDataToFavorites:(int)row
@@ -219,7 +211,8 @@ DataModel *dataModel;
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
-
+// Reads the NSData - which contains the XML raw data obtained from the web
+// Parses the NSData XML Doc using the DOM Parser
 -(void) parseDocumentUsingDocParser:(NSData*)data {
     NSError *error;
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:data
@@ -232,6 +225,8 @@ DataModel *dataModel;
         NSLog(@"ERROR --  Could not parse the Craigslist Results");
 }
 
+// Iterates through the elements of the DOM
+// Goes over each element and extracts the title, price, town and url
 -(void) parseSearchResults:(GDataXMLDocument*) doc {
     NSString *PRICE_REGX = @" \\$[0-9]+";
     NSString *BED_REGX = @" [0-9]bd";
@@ -288,32 +283,6 @@ DataModel *dataModel;
         
         [listingsUrl addObject:l.title];
     }
-}
-
-
--(BOOL)parseDocumentWithNSData:(NSData *)data{
-    if (data == nil)
-        return NO;
-    
-    [self parseDocumentUsingDocParser:data];
-    return YES;
-}
-
-
--(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-    
-    //NSLog(@"didStartElement: %@", elementName);
-  
-    
-    if (![elementName isEqualToString:@"rdf:li"])
-        return;
-    
-    NSString * detailUrl = [attributeDict objectForKey:@"rdf:resource"];
-    
-    if (!listingsUrl)
-        listingsUrl = [[NSMutableArray alloc] init];
-    
-    [listingsUrl addObject:detailUrl];
 }
 
 @end

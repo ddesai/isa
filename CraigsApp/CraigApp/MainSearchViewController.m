@@ -80,24 +80,6 @@ DataModel *dataModel;
     } else {
         NSLog(@"Data has loaded successfully.");
     }
-    
-    NSString *strData = [[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding];
-    //NSLog(@"My Data: %@", strData);
-    
-    //NSXMLParser *xmlParser = [[NSXMLParser alloc]initWithData:data];
-    //[xmlParser parse];
-
-    //[[UIApplication sharedApplication] openURL:url];
-    
-    /*
-    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    
-    NSArray *resultArray = [results objectForKey:@"rdf"];
-    
-    NSDictionary *firstItem = [resultArray objectAtIndex:0];
-    
-    NSNumber *elevation = [firstItem objectForKey:@"elevation"];
-    */
 }
 
 // Dismiss the Keyboard when clicked on RETURN
