@@ -1,4 +1,0 @@
-isa
-===
-
-Intelligent Search Assistant

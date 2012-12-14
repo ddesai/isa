@@ -76,7 +76,8 @@
 {
     if ([viewController.title isEqualToString:@"FavNavController"])
     {
-        FavViewController *fvc = ((UINavigationController *)viewController).topViewController;
+        UINavigationController *navc = (UINavigationController *)viewController;
+        FavViewController *fvc = (FavViewController *)[navc.viewControllers objectAtIndex:0];
         [fvc.tableView reloadData];
     }
 }

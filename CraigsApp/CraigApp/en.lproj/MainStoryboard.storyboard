@@ -416,6 +416,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Listing Results Map" id="Ief-iv-9uC"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="CHH-ap-awO" id="F7Y-v5-5JC"/>
                     </connections>
@@ -470,6 +471,7 @@
                     <navigationItem key="navigationItem" title="Intelligent Search Assistant" id="bAz-Om-tdo">
                         <barButtonItem key="backBarButtonItem" title="Back" id="MAZ-ea-q4K"/>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myTableView" destination="nSR-Pu-1on" id="rRe-iK-zz3"/>
                     </connections>
@@ -539,68 +541,6 @@
         <image name="star.png" width="26" height="26"/>
         <image name="unchecked.png" width="22" height="22"/>
     </resources>
-    <classes>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailListing" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="FavCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="label1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FavViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavViewController.h"/>
-        </class>
-        <class className="ISAMainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ISAMainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ListingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListingViewController.h"/>
-        </class>
-        <class className="MainSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="action" name="dismissKeyboardOutside:"/>
-                <relationship kind="action" name="searchCL:"/>
-                <relationship kind="outlet" name="appTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bedMin" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="bedTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hasImage" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="keyword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="priceMax" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="priceMin" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="SearchDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchDetailViewController.h"/>
-        </class>
-        <class className="TableCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableCell.h"/>
-            <relationships>
-                <relationship kind="action" name="checkFav:"/>
-                <relationship kind="outlet" name="addToFavButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="label1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
