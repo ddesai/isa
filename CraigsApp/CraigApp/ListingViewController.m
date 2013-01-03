@@ -181,6 +181,12 @@ DataModel *dataModel;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    UIStoryboard *storyboard = self.storyboard;
+    
+    DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    dvc.listingUrl = [dataModel getListingUrlAtIndex:indexPath.row];
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 -(void) addDataToFavorites:(int)row
@@ -200,12 +206,7 @@ DataModel *dataModel;
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    UIStoryboard *storyboard = self.storyboard;
-    
-    DetailViewController *dvc = [storyboard instantiateViewControllerWithIdentifier:@"detail"];
-    dvc.listingUrl = [dataModel getListingUrlAtIndex:indexPath.row];
-    [self.navigationController pushViewController:dvc animated:YES];
+
 }
 
 // Reads the NSData - which contains the XML raw data obtained from the web
