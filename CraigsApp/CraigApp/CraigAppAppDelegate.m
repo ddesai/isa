@@ -9,6 +9,8 @@
 #import "CraigAppAppDelegate.h"
 #import "FavViewController.h"
 
+NSString *startTab = @"startTab";
+
 @implementation CraigAppAppDelegate
 
 @synthesize window;
@@ -27,8 +29,11 @@
     [self initializeData];
     self.startTabBarController = (UITabBarController *)self.window.rootViewController;
     [self.startTabBarController setDelegate:self];
-   [window addSubview:startTabBarController.view];
-   [window makeKeyAndVisible];
+    [window addSubview:startTabBarController.view];
+    [window makeKeyAndVisible];
+    
+    NSUInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:startTab];
+    self.startTabBarController.selectedIndex = index;
 
     return YES;
 }
@@ -80,5 +85,12 @@
         FavViewController *fvc = (FavViewController *)[navc.viewControllers objectAtIndex:0];
         [fvc.tableView reloadData];
     }
+}
+
+-(void)saveLastTab
+{
+    NSUInteger startTabIndex = self.startTabBarController.selectedIndex;
+    [[NSUserDefaults standardUserDefaults] setInteger:startTabIndex forKey:startTab];
+
 }
 @end
